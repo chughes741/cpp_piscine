@@ -1,10 +1,11 @@
 
+#pragma once
 #ifndef H_PHONEBOOK
 # define H_PHONEBOOK
 
 class PhoneBook {
 	public:
-		Contact[9] contacts;
+		Contact contacts;
 		void	addContact();
 		void	searchContacts();
 };
