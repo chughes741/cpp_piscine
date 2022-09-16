@@ -22,30 +22,23 @@ int	main() {
 }
 
 void PhoneBook::addContact() {
-	this->n_contacts += (this->n_contacts < 8) ? 1 : 0;
-
-	std::cout << "Enter the first name of the contact: " << std::endl;
-	// getline(std::cin, this->contacts[this->n_contacts].first_name);
-	std::cout << "Enter the last name of the contact: " << std::endl;
-	// getline(std::cin, this->contacts[this->n_contacts].last_name);
-	std::cout << "Enter the nickname of the contact: " << std::endl;
-	// getline(std::cin, this->contacts[this->n_contacts].nickname);
-	std::cout << "Enter the phone number of the contact: " << std::endl;
-	// getline(std::cin, this->contacts[this->n_contacts].phone_number);
-	std::cout << "Enter the darkest secret of the contact: " << std::endl;
-	// getline(std::cin, this->contacts[this->n_contacts].darkest_secret);
-
-	std::cout << "Added new contacts" << std::endl;
+	std::string temp;
+	n_contacts += (n_contacts < 8) ? 1 : 0;
+	contacts[n_contacts].setFirstName();
+	contacts[n_contacts].setLastName();
+	contacts[n_contacts].setNickname();
+	contacts[n_contacts].setPhoneNumber();
+	contacts[n_contacts].setDarkestSecret();
+	std::cout << "Added new contact" << std::endl;
 	return;
 }
 
 void PhoneBook::searchContacts() {
-	for (int i = 0; i < this->n_contacts; ++i) {
-		std::cout << i << " | " 
-		<< this->contacts[this->n_contacts].getFirstName() << " | " 
-		<< this->contacts[this->n_contacts].getLastName() << " | " 
-		<< this->contacts[this->n_contacts].getNickname()
-		<< std::endl;
+	for (int i = 0; i < n_contacts; ++i) {
+		std::cout	<< i 									<< " | "
+					<< contacts[n_contacts].getFirstName()	<< " | " 
+					<< contacts[n_contacts].getLastName()	<< " | " 
+					<< contacts[n_contacts].getNickname()	<< std::endl;
 	}
 	return;
 }
