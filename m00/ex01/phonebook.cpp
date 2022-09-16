@@ -34,11 +34,11 @@ void PhoneBook::addContact() {
 }
 
 void PhoneBook::searchContacts() {
-	for (int i = 0; i < n_contacts; ++i) {
-		std::cout	<< i 									<< " | "
-					<< contacts[n_contacts].getFirstName()	<< " | " 
-					<< contacts[n_contacts].getLastName()	<< " | " 
-					<< contacts[n_contacts].getNickname()	<< std::endl;
+	for (int i = 1; i <= n_contacts; ++i) {
+		std::cout	<< i 							<< " | "
+					<< contacts[i].getFirstName()	<< " | " 
+					<< contacts[i].getLastName()	<< " | " 
+					<< contacts[i].getNickname()	<< std::endl;
 	}
 	return;
 }
