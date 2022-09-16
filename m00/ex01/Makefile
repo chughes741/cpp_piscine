@@ -32,7 +32,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	phonebook
-SRCS	=	phonebook.cpp
+SRCS	=	phonebook.cpp getters.cpp setters.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(HIDE)$(CC) $(CFLAGS) $(OBJS) -o $@
 
-$(OBJS): $(SRCS)
+.cpp.o: $(SRCS)
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
 # Removes objects
