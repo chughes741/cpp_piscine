@@ -14,14 +14,14 @@ class Contact {
 		std::string	phone_number;
 		std::string darkest_secret;
 	public:
-		void	setFirstName();
-		void	setLastName();
-		void	setNickname();
-		void	setPhoneNumber();
-		void	setDarkestSecret();
-		void	getFirstName();
-		void	getLastName();
-		void	getNickname();
+		void		setFirstName();
+		void		setLastName();
+		void		setNickname();
+		void		setPhoneNumber();
+		void		setDarkestSecret();
+		std::string	getFirstName();
+		std::string	getLastName();
+		std::string	getNickname();
 };
 
 class PhoneBook {
