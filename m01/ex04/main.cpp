@@ -10,14 +10,12 @@ int main( int argc, char **argv ) {
 
 	std::ifstream	input;
 	std::ofstream	output;
-	std::string		infilename, outfilename;
-	std::string		s1, s2, temp, text;
+	std::string		infilename = argv[1];
+	std::string		outfilename = argv[1];
+	std::string		s1 = argv[2], s2 = argv[3]; 
+	std::string		temp, text;
 
-	infilename.append(argv[1]);
-	outfilename.append(infilename);
 	outfilename.append(".replace");
-	s1.append(argv[2]);
-	s2.append(argv[3]);
 
 	input.open(infilename);
 	output.open(outfilename);

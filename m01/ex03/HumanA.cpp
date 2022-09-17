@@ -8,14 +8,13 @@
 #include "Weapon.hpp"
 
 
-HumanA::HumanA( std::string newname, Weapon newweapon ) {
-
-	myweapon = newweapon;
-	name = newname;
-
+HumanA::HumanA( std::string newname, Weapon &newweapon ) : name(newname), myweapon(newweapon)  {
 	return;
 }
 
+HumanA::~HumanA( void ) {
+	return;
+}
 
 void HumanA::attack( void ) {
 	std::cout	<< name << " attacks with their " 

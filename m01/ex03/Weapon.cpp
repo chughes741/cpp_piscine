@@ -15,10 +15,13 @@ Weapon::Weapon( std::string weaponname ) {
 
 // Returns Weapon type
 const std::string& Weapon::getType( void ) {
-	//TODO Need to check how to do const ref return
+	
 	return type;
 }
 
+Weapon::~Weapon( void ) {
+	return;
+}
 
 // Set Weapons type
 void Weapon::setType( std::string newtype ) {
