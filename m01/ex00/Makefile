@@ -31,7 +31,7 @@ RM		=	rm -rf
 #*-----------------------------------------------------------------------------#
 
 # Dir and file names
-NAME	=	account
+NAME	=	zombiebreeder
 SRCS	=	main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 
