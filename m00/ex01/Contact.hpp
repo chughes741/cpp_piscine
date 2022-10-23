@@ -5,6 +5,7 @@
 # include <iostream>
 # include <string>
 
+// Class that contains contact information
 class Contact {
 	public:
 		Contact( void );
