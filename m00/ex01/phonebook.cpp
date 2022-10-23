@@ -1,24 +1,13 @@
 
-
-#include <iostream>
 #include "PhoneBook.hpp"
 
-int	main() {
-	PhoneBook pb;
-	std::string	input;
 
-	while (1) {
-		std::cout << "Enter command: ADD, SEARCH, EXIT" << std::endl;
-		getline(std::cin, input);
-		if (input.compare("ADD") == 0) {
-			pb.addContact();
-		} else if (input.compare("SEARCH") == 0) {
-			pb.searchContacts();
-		} else if (input.compare("EXIT") == 0) {
-			break;
-		}
-	}
-	return 0;
+PhoneBook::PhoneBook( void ) {
+	return;
+}
+
+PhoneBook::~PhoneBook() {
+	return;
 }
 
 void PhoneBook::addContact() {
@@ -34,11 +23,13 @@ void PhoneBook::addContact() {
 }
 
 void PhoneBook::searchContacts() {
-	for (int i = 1; i <= n_contacts; ++i) {
-		std::cout	<< i 							<< " | "
-					<< contacts[i].getFirstName()	<< " | " 
-					<< contacts[i].getLastName()	<< " | " 
-					<< contacts[i].getNickname()	<< std::endl;
+	// TODO right align and set width to 10
+	for (int i = 1; i <= n_contacts; ++i) {		
+		std::cout.width(10); std::cout	<< i 							<< " | ";
+		std::cout.width(10); std::cout	<< contacts[i].getFirstName()	<< " | ";
+		std::cout.width(10); std::cout	<< contacts[i].getLastName()	<< " | ";
+		std::cout.width(10); std::cout	<< contacts[i].getNickname()	<< std::endl;
 	}
+	// TODO Add secondary search
 	return;
 }

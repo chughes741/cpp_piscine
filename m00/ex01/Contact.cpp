@@ -1,7 +1,15 @@
 
+#include "Contact.hpp"
 
-#include <iostream>
-#include "PhoneBook.hpp"
+
+Contact::Contact( void ) {
+	return;
+}
+
+Contact::~Contact( void ) {
+	return;
+}
+
 
 void Contact::setFirstName() {
 	std::string temp;
@@ -46,4 +54,17 @@ void Contact::setDarkestSecret() {
 	getline(std::cin, temp);
 	darkest_secret = temp;
 	return;
+}
+
+
+std::string Contact::getFirstName() {
+	return (first_name);
+}
+
+std::string Contact::getLastName() {
+	return (last_name);
+}
+
+std::string Contact::getNickname() {
+	return (nickname);
 }
