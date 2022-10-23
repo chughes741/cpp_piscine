@@ -10,6 +10,7 @@
 # include "Contact.hpp"
 
 
+// Class holding array of Contacts
 class PhoneBook {
 	public:
 		PhoneBook( void );
@@ -17,12 +18,13 @@ class PhoneBook {
 		~PhoneBook();
 		PhoneBook & operator = (const PhoneBook &phonebook);
 
-		void	addContact();
-		void	searchContacts();
+		void	addContact( void );
+		void	searchContacts( void );
 
 	private:
-		int		_n_contacts;
-		Contact _contacts[8];
+		void printContact( void );
+		int		n_contacts_;
+		Contact contacts_[8];
 };
 
 
