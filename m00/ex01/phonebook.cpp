@@ -28,10 +28,10 @@ void PhoneBook::addContact( void ) {
 void PhoneBook::searchContacts( void ) {
 	// TODO right align and set width to 10
 	for (int i = 1; i <= n_contacts_; ++i) {		
-		std::cout.width(10); std::cout	<< i 														<< " | ";
-		std::cout.width(10); std::cout	<< contacts_[i].getFirstName()	<< " | ";
-		std::cout.width(10); std::cout	<< contacts_[i].getLastName()		<< " | ";
-		std::cout.width(10); std::cout	<< contacts_[i].getNickname()		<< std::endl;
+		std::cout.width(10); std::cout << i 														<< " | ";
+		std::cout.width(10); std::cout << contacts_[i].getFirstName()		<< " | ";
+		std::cout.width(10); std::cout << contacts_[i].getLastName()		<< " | ";
+		std::cout.width(10); std::cout << contacts_[i].getNickname()		<< std::endl;
 	}
 	printContact();
 	return;
@@ -42,11 +42,11 @@ void PhoneBook::printContact( void ) {
 	int i;
 	std::cin >> i;
 	if (0 <= i && i < n_contacts_) {
-		std::cout << contacts_[i].getFirstName() << std::endl;
-		std::cout << contacts_[i].getLastName() << std::endl;
-		std::cout << contacts_[i].getNickname() << std::endl;
-		std::cout << contacts_[i].getPhoneNumber() << std::endl;
-		std::cout << contacts_[i].getDarkestSecret() << std::endl;
+		std::cout << contacts_[i].getFirstName()			<< std::endl;
+		std::cout << contacts_[i].getLastName()				<< std::endl;
+		std::cout << contacts_[i].getNickname()				<< std::endl;
+		std::cout << contacts_[i].getPhoneNumber()		<< std::endl;
+		std::cout << contacts_[i].getDarkestSecret()	<< std::endl;
 	} else {
 		std::cout << "Index out of range" << std::endl;
 	}
