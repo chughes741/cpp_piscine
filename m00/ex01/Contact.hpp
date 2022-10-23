@@ -21,13 +21,15 @@ class Contact {
 		std::string	getFirstName();
 		std::string	getLastName();
 		std::string	getNickname();
+		std::string getPhoneNumber();
+		std::string getDarkestSecret();
 
 	private:
-		std::string first_name;
-		std::string last_name;
-		std::string nickname;
-		std::string	phone_number;
-		std::string darkest_secret;		
+		std::string first_name_;
+		std::string last_name_;
+		std::string nickname_;
+		std::string	phone_number_;
+		std::string darkest_secret_;
 };
 
 #endif // CONTACT_HPP_

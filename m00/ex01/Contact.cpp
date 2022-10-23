@@ -16,7 +16,7 @@ void Contact::setFirstName() {
 	
 	std::cout << "Enter the first name of the contact: " << std::endl;
 	getline(std::cin, temp);
-	first_name = temp;
+	first_name_ = temp;
 	return;
 }
 
@@ -25,7 +25,7 @@ void Contact::setLastName() {
 
 	std::cout << "Enter the last name of the contact: " << std::endl;
 	getline(std::cin, temp);
-	last_name = temp;
+	last_name_ = temp;
 	return;
 }
 
@@ -34,7 +34,7 @@ void Contact::setNickname() {
 
 	std::cout << "Enter the nickname of the contact: " << std::endl;
 	getline(std::cin, temp);
-	nickname = temp;
+	nickname_ = temp;
 	return;
 }
 
@@ -43,7 +43,7 @@ void Contact::setPhoneNumber() {
 
 	std::cout << "Enter the phone number of the contact: " << std::endl;
 	getline(std::cin, temp);
-	phone_number = temp;
+	phone_number_ = temp;
 	return;
 }
 
@@ -52,19 +52,27 @@ void Contact::setDarkestSecret() {
 
 	std::cout << "Enter the darkest secret of the contact: " << std::endl;
 	getline(std::cin, temp);
-	darkest_secret = temp;
+	darkest_secret_ = temp;
 	return;
 }
 
 
 std::string Contact::getFirstName() {
-	return (first_name);
+	return (first_name_);
 }
 
 std::string Contact::getLastName() {
-	return (last_name);
+	return (last_name_);
 }
 
 std::string Contact::getNickname() {
-	return (nickname);
+	return (nickname_);
+}
+
+std::string Contact::getPhoneNumber() {
+	return (phone_number_);
+}
+
+std::string Contact::getDarkestSecret() {
+	return (darkest_secret_);
 }
