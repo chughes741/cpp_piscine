@@ -22,13 +22,14 @@ endif
 
 # Compiler and flags
 CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I.
 RM		=	rm -rf
 
 # Dir and file names
 NAME	=	phonebook
 SRCS	=	getters.cpp PhoneBook.cpp setters.cpp
 OBJS	=	$(SRCS:.cpp=.o)
+DEP		=	$(wildcard *.hpp)
 
 
 #------------------------------------------------------------------------------#
@@ -37,10 +38,12 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 all: $(NAME)
 
+# Generates output file
 $(NAME): $(OBJS)
 	$(HIDE)$(CC) $(CFLAGS) $(OBJS) -o $@
 
-.cpp.o: $(SRCS)
+# Compiles source files into object files
+.cpp.o: $(SRCS) $(DEP)
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
 # Removes objects
