@@ -21,8 +21,8 @@ class PhoneBook {
 		void	searchContacts();
 
 	private:
-		int		n_contacts;
-		Contact contacts[8];
+		int		_n_contacts;
+		Contact _contacts[8];
 };
 
 

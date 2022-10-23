@@ -12,23 +12,23 @@ PhoneBook::~PhoneBook() {
 
 void PhoneBook::addContact() {
 	std::string temp;
-	n_contacts += (n_contacts < 8) ? 1 : 0;
-	contacts[n_contacts].setFirstName();
-	contacts[n_contacts].setLastName();
-	contacts[n_contacts].setNickname();
-	contacts[n_contacts].setPhoneNumber();
-	contacts[n_contacts].setDarkestSecret();
+	_n_contacts += (_n_contacts < 8) ? 1 : 0;
+	_contacts[_n_contacts].setFirstName();
+	_contacts[_n_contacts].setLastName();
+	_contacts[_n_contacts].setNickname();
+	_contacts[_n_contacts].setPhoneNumber();
+	_contacts[_n_contacts].setDarkestSecret();
 	std::cout << "Added new contact" << std::endl;
 	return;
 }
 
 void PhoneBook::searchContacts() {
 	// TODO right align and set width to 10
-	for (int i = 1; i <= n_contacts; ++i) {		
+	for (int i = 1; i <= _n_contacts; ++i) {		
 		std::cout.width(10); std::cout	<< i 							<< " | ";
-		std::cout.width(10); std::cout	<< contacts[i].getFirstName()	<< " | ";
-		std::cout.width(10); std::cout	<< contacts[i].getLastName()	<< " | ";
-		std::cout.width(10); std::cout	<< contacts[i].getNickname()	<< std::endl;
+		std::cout.width(10); std::cout	<< _contacts[i].getFirstName()	<< " | ";
+		std::cout.width(10); std::cout	<< _contacts[i].getLastName()	<< " | ";
+		std::cout.width(10); std::cout	<< _contacts[i].getNickname()	<< std::endl;
 	}
 	// TODO Add secondary search
 	return;
