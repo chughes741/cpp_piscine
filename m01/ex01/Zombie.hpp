@@ -1,28 +1,26 @@
 
+#ifndef ZOMBIE_HPP_
+#define ZOMBIE_HPP_
 
-#ifndef M01_EX00_ZOMBIE_H_
-# define M01_EX00_ZOMBIE_H_
+#include <iostream>
+#include <string>
 
-# include <iostream>
-# include <string>
-
-
+// Zombie class
 class Zombie {
-	private:
-		std::string _name;
+ public:
+  Zombie(std::string new_name);
+  Zombie(const Zombie &zombie);
+  ~Zombie();
+  Zombie &operator=(const Zombie &zombie);
 
-	public:
-		Zombie( void );
-		Zombie( std::string new_name );
-		~Zombie();
-		void setName( std::string name );
-		std::string getName( void );
-		void announce( void );
+  void setName(std::string name);
+  std::string getName(void);
+  void announce(void);
+
+ private:
+  std::string name_;
 };
 
+Zombie *zombieHorde(int N, std::string name);
 
-// Zombie generation functions
-Zombie*    zombieHorde( int N, std::string name );
-
-
-#endif // M01_EX00_ZOMBIE_H_
+#endif  // ZOMBIE_HPP_
