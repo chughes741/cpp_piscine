@@ -21,7 +21,7 @@ int Account::getNbDeposits(void) { return (_totalNbDeposits); }
 // Returns total number of withdrawls
 int Account::getNbWithdrawals(void) { return (_totalNbWithdrawals); }
 
-// TODO
+// Displays total account information
 void Account::displayAccountsInfos(void) {
   _displayTimestamp();
   std::cout << " accounts:" << _nbAccounts;
