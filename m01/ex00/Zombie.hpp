@@ -1,25 +1,25 @@
 
+#ifndef ZOMBIE_HPP_
+#define ZOMBIE_HPP_
 
-#ifndef M01_EX00_ZOMBIE_H_
-# define M01_EX00_ZOMBIE_H_
-
-# include <iostream>
-# include <string>
-
+#include <iostream>
+#include <string>
 
 class Zombie {
-	private:
-		std::string name;
+ public:
+  Zombie(std::string new_name);
+  Zombie(const Zombie &zombie);
+  ~Zombie();
+  Zombie &operator=(const Zombie &zombie);
 
-	public:
-		Zombie( std::string new_name );
-		void announce( void );
+  void announce(void);
+
+ private:
+  std::string name_;
 };
 
-
 // Zombie generation functions
-Zombie*	newZombie( std::string name );
-void	randomChump( std::string name );
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);
 
-
-#endif // M01_EX00_ZOMBIE_H_
+#endif  // ZOMBIE_HPP_
