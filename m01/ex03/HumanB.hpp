@@ -1,23 +1,25 @@
 
+#ifndef HUMANB_HPP_
+#define HUMANB_HPP_
 
-#ifndef M01_EX03_HUMANB_H_
-# define M01_EX03_HUMANB_H_
+#include <string>
+#include <iostream>
 
-# include <string>
-
-# include "Weapon.hpp"
-
+#include "Weapon.hpp"
 
 class HumanB {
-	private:
-		std::string	name;
-		Weapon*		myweapon;
-	public:
-		void setWeapon( Weapon weaponname );
-		HumanB( std::string newname );
-		~HumanB();
-		void attack( void );
+ public:
+  HumanB(std::string newname);
+  HumanB(const HumanB &humanb);
+  ~HumanB();
+  HumanB &operator=(const HumanB &humanb);
+
+  void setWeapon(Weapon weaponname);
+  void attack(void);
+
+ private:
+  std::string name_;
+  Weapon *myweapon_;
 };
 
-
-#endif // M01_EX03_HUMANB_H_
+#endif  // HUMANB_HPP_

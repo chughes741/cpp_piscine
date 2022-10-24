@@ -4,29 +4,17 @@
 
 #include <string>
 
+// Default constructor
+Weapon::Weapon(std::string weaponname) : type_(weaponname) { return; }
 
-Weapon::Weapon( std::string weaponname ) {
-
-	type = weaponname;
-
-	return;
-}
-
+// Default destructor
+Weapon::~Weapon(void) { return; }
 
 // Returns Weapon type
-const std::string& Weapon::getType( void ) {
-	
-	return type;
-}
+const std::string& Weapon::getType(void) { return type_; }
 
-Weapon::~Weapon( void ) {
-	return;
-}
-
-// Set Weapons type
-void Weapon::setType( std::string newtype ) {
-	
-	type = newtype;
-	
-	return;
+// type_ setter
+void Weapon::setType(std::string newtype) {
+  type_ = newtype;
+  return;
 }

@@ -1,22 +1,24 @@
 
+#ifndef HUMANA_HPP_
+#define HUMANA_HPP_
 
-#ifndef M01_EX03_HUMANA_H_
-# define M01_EX03_HUMANA_H_
+#include <iostream>
+#include <string>
 
-# include <string>
-
-# include "Weapon.hpp"
-
+#include "Weapon.hpp"
 
 class HumanA {
-	private:
-		std::string	name;
-		Weapon&		myweapon;
-	public:
-		HumanA( std::string newname, Weapon &newweapon );
-		~HumanA();
-		void attack( void );
+ public:
+  HumanA(std::string newname, Weapon &newweapon);
+  HumanA(const HumanA &humana);
+  ~HumanA();
+  HumanA &operator=(const HumanA &humana);
+
+  void attack(void);
+
+ private:
+  std::string name_;
+  Weapon &myweapon_;
 };
 
-
-#endif // M01_EX03_HUMANA_H_
+#endif  // HUMANA_HPP_

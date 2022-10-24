@@ -1,20 +1,22 @@
 
+#ifndef WEAPON_HPP_
+#define WEAPON_HPP_
 
-#ifndef M01_EX03_WEAPON_H_
-# define M01_EX03_WEAPON_H_
+#include <string>
 
-# include <string>
-
-
+// Weapon class
 class Weapon {
-	private:
-		std::string type;
-	public:
-		Weapon( std::string weaponname );
-		~Weapon();
-		const std::string&	getType( void );
-		void 				setType( std::string newtype );
+ public:
+  Weapon(std::string weaponname);
+  Weapon(const Weapon &weapon);
+  ~Weapon();
+  Weapon &operator=(const Weapon &weapon);
+
+  const std::string &getType(void);
+  void setType(std::string newtype);
+
+ private:
+  std::string type_;
 };
 
-
-#endif // M01_EX03_WEAPON_H_
+#endif  // WEAPON_HPP_

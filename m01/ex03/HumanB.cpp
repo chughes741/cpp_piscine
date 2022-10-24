@@ -1,28 +1,21 @@
 
-
 #include "HumanB.hpp"
 
-#include <string>
-#include <iostream>
+// Default constructor
+HumanB::HumanB(std::string newname) : name_(newname) { return; }
 
-#include "Weapon.hpp"
+// Default destructor
+HumanB::~HumanB(void) { return; }
 
-
-HumanB::HumanB( std::string newname ) : name(newname) {
-	return;
+// myweapon_ setter
+void HumanB::setWeapon(Weapon weaponname) {
+  myweapon_ = &weaponname;
+  return;
 }
 
-void HumanB::setWeapon( Weapon weaponname ) {
-	myweapon = &weaponname;
-	return;
-}
-
-HumanB::~HumanB( void ) {
-	return;
-}
-
-void HumanB::attack( void ) {
-	std::cout	<< name << " attacks with their " 
-				<< myweapon->getType() << std::endl;
-	return;
+// Attack method
+void HumanB::attack(void) {
+  std::cout << name_ << " attacks with their " << myweapon_->getType()
+            << std::endl;
+  return;
 }
