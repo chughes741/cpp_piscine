@@ -4,10 +4,7 @@
 
 #include <iostream>
 
-Zombie::Zombie(std::string new_name) {
-  name_ = new_name;
-  return;
-}
+Zombie::Zombie(std::string new_name) : name_(new_name) { return; }
 
 Zombie::~Zombie() { return; }
 
