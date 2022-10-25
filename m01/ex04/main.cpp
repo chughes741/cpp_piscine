@@ -1,41 +1,40 @@
 
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 
+int main(int argc, char **argv) {
+  if (argc != 4) return 1;
 
-int main( int argc, char **argv ) {
-	if (argc != 4) return 1;
+  std::ifstream input;
+  std::ofstream output;
+  std::string infilename = argv[1];
+  std::string outfilename = argv[1];
+  std::string s1 = argv[2], s2 = argv[3];
+  std::string temp, text;
 
-	std::ifstream	input;
-	std::ofstream	output;
-	std::string		infilename = argv[1];
-	std::string		outfilename = argv[1];
-	std::string		s1 = argv[2], s2 = argv[3]; 
-	std::string		temp, text;
+  outfilename.append(".replace");
 
-	outfilename.append(".replace");
+  input.open(infilename);
+  output.open(outfilename);
 
-	input.open(infilename);
-	output.open(outfilename);
+  while (getline(input, temp)) {
+    text.append(temp);
+    text.append("\n");
+  }
 
-	while ( getline(input, temp) ) {
-		text.append(temp);
-		text.append("\n");
-	}
+  std::size_t position = text.find(s1);
+  while (position != std::string::npos) {
+    text.erase(position, s1.length());
+    text.insert(position, s2);
+    position = text.find(s1);
+  }
 
-	std::size_t position = text.find(s1);
-	while (position != std::string::npos) {
-		text.erase(position, s1.length());
-		text.insert(position, s2);
-		position = text.find(s1);
-	}
+  output << text << std::endl;
 
-	output << text << std::endl;
+  input.close();
+  output.close();
 
-	input.close();
-	output.close();
-
-	return 0;
+  return 0;
 }

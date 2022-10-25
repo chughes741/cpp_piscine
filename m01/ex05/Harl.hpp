@@ -1,24 +1,25 @@
 
+#ifndef HARL_HPP_
+#define HARL_HPP_
 
-#ifndef M01_EX05_HARL_H_
-# define M01_EX05_HARL_H_
+#include <iostream>
+#include <string>
 
-# include <string>
-
+// Harl class
 class Harl {
-	public:
-		Harl();
-		Harl( const Harl &h);
-		~Harl();
-		Harl & operator = (const Harl &h);
+ public:
+  Harl(void);
+  Harl(const Harl &harl);
+  ~Harl();
+  Harl &operator=(const Harl &harl);
 
-		void complain( std::string level );
+  void complain(std::string level);
 
-	private:
-		void	debug( void );
-		void	info( void );
-		void	warning( void );
-		void	error( void );
+ private:
+  void debug(void);
+  void info(void);
+  void warning(void);
+  void error(void);
 };
 
-#endif // M01_EX05_HARL_H_
+#endif  // HARL_HPP_
