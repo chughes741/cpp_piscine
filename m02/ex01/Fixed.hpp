@@ -2,8 +2,8 @@
 #ifndef FIXED_HPP_
 #define FIXED_HPP_
 
-#include <ostream>
 #include <iomanip>
+#include <ostream>
 
 // Fixed class definition
 class Fixed {
@@ -11,9 +11,9 @@ class Fixed {
   Fixed(void);
   Fixed(const int i_number);
   Fixed(const float f_number);
-  Fixed(const Fixed &fixed);
+  Fixed(const Fixed &other);
   ~Fixed();
-  Fixed &operator=(const Fixed &fixed);
+  Fixed &operator=(const Fixed &rhs);
 
   int getRawBits(void);
   void setRawBits(int const raw);
@@ -26,6 +26,6 @@ class Fixed {
 };
 
 // Output stream
-std::ostream &operator<<(std::ostream os, Fixed &fixed);
+std::ostream &operator<<(std::ostream &os, const Fixed &rhs);
 
 #endif  // FIXED_HPP_

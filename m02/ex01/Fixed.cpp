@@ -14,8 +14,8 @@ Fixed::Fixed(const float f_number) {
 }
 
 // Copy assignment
-Fixed::Fixed(const Fixed &fixed) {
-  raw_bits_ = fixed.raw_bits_;
+Fixed::Fixed(const Fixed &other) {
+  *this = other;
   return;
 }
 
@@ -29,13 +29,20 @@ int Fixed::getRawBits(void) { return (raw_bits_); }
 void Fixed::setRawBits(int const raw) { raw_bits_ = raw; }
 
 // Returns raw_bits_ as a float
-float Fixed::toFloat(void) const { return (raw_bits_ / (1 << point_)); }
+float Fixed::toFloat(void) const {
+  return ((float)raw_bits_ / (float)(1 << point_));
+}
 
 // Returns raw_bits_ as an integer
 int Fixed::toInt(void) const { return ((raw_bits_ >> 8) & 0xffffff); }
 
 // Output stream insertion
-std::ostream &operator<<(std::ostream &os, Fixed &fixed) {
-  os << fixed.toFloat();
+std::ostream &operator<<(std::ostream &os, const Fixed &rhs) {
+  os << rhs.toFloat();
   return os;
+}
+
+Fixed &Fixed::operator=(const Fixed &rhs) {
+  this->raw_bits_ = rhs.raw_bits_;
+  return *this;
 }
