@@ -23,6 +23,7 @@ class PhoneBook {
  private:
   void printContact(void);
   int n_contacts_;
+  int add_position_;
   Contact contacts_[8];
 };
 

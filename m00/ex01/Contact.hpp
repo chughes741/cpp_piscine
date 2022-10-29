@@ -8,22 +8,25 @@
 // Class that contains contact information
 class Contact {
  public:
-  Contact(void);
+  Contact();
   Contact(const Contact &contact);
   ~Contact();
-  Contact &operator=(const Contact &contact);
+  Contact &operator=(const Contact &rhs);
 
-  void setFirstName();
-  void setLastName();
-  void setNickname();
-  void setPhoneNumber();
-  void setDarkestSecret();
+  void setFirstName(std::string first_name);
+  void setLastName(std::string last_name);
+  void setNickname(std::string nickname);
+  void setPhoneNumber(std::string phone_number);
+  void setDarkestSecret(std::string darkest_secret);
 
-  std::string getFirstName();
-  std::string getLastName();
-  std::string getNickname();
-  std::string getPhoneNumber();
-  std::string getDarkestSecret();
+  const std::string &getFirstName() const;
+  const std::string &getLastName() const;
+  const std::string &getNickname() const;
+  const std::string &getPhoneNumber() const;
+  const std::string &getDarkestSecret() const;
+
+  void (*f_contact_setters_[5])(std::string);
+  std::string field_names_[5];
 
  private:
   std::string first_name_;

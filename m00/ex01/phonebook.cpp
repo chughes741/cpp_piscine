@@ -9,12 +9,21 @@ PhoneBook::~PhoneBook() { return; }
 
 // Method for adding new contact information
 void PhoneBook::addContact(void) {
+  if (n_contacts_ == 8 && add_position_ == 8)
+    add_position_ = 0;
+  else if (n_contacts_ == 8)
+    add_position_ += 1;
+  else
+    add_position_ = n_contacts_ + 1;
   n_contacts_ += (n_contacts_ < 8) ? 1 : 0;
-  contacts_[n_contacts_ - 1].setFirstName();
-  contacts_[n_contacts_ - 1].setLastName();
-  contacts_[n_contacts_ - 1].setNickname();
-  contacts_[n_contacts_ - 1].setPhoneNumber();
-  contacts_[n_contacts_ - 1].setDarkestSecret();
+
+  std::string input;
+  for (int i = 0; i < 5; ++i) {
+    std::cout << "Enter contacts "
+              << contacts_[add_position_ - 1].field_names_[i] << std::endl;
+    getline(std::cin, input);
+    contacts_[add_position_ - 1].f_contact_setters_[i](input);
+  }
   std::cout << "Added new contact" << std::endl;
   return;
 }
