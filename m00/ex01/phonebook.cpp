@@ -14,16 +14,36 @@ void PhoneBook::addContact(void) {
   else if (n_contacts_ == 8)
     add_position_ += 1;
   else
-    add_position_ = n_contacts_ + 1;
+    add_position_ = n_contacts_;
   n_contacts_ += (n_contacts_ < 8) ? 1 : 0;
 
   std::string input;
-  for (int i = 0; i < 5; ++i) {
-    std::cout << "Enter contacts "
-              << contacts_[add_position_ - 1].field_names_[i] << std::endl;
-    getline(std::cin, input);
-    contacts_[add_position_ - 1].f_contact_setters_[i](input);
-  }
+
+  std::cout << "Enter the new contacts first name: " << std::endl;
+  getline(std::cin, input);
+  if (std::cin.eof()) exit(0);
+  contacts_[add_position_].setFirstName(input);
+
+  std::cout << "Enter the new contacts last name: " << std::endl;
+  getline(std::cin, input);
+  if (std::cin.eof()) exit(0);
+  contacts_[add_position_].setLastName(input);
+
+  std::cout << "Enter the new contacts nickname: " << std::endl;
+  getline(std::cin, input);
+  if (std::cin.eof()) exit(0);
+  contacts_[add_position_].setNickname(input);
+
+  std::cout << "Enter the new contacts phonenumber: " << std::endl;
+  getline(std::cin, input);
+  if (std::cin.eof()) exit(0);
+  contacts_[add_position_].setPhoneNumber(input);
+
+  std::cout << "Enter the new contacts darkest secret: " << std::endl;
+  getline(std::cin, input);
+  if (std::cin.eof()) exit(0);
+  contacts_[add_position_].setDarkestSecret(input);
+
   std::cout << "Added new contact" << std::endl;
   return;
 }
@@ -39,6 +59,10 @@ static std::string setWidthToTen(std::string str) {
 
 // Method for searching through Contacts
 void PhoneBook::searchContacts(void) {
+  if (n_contacts_ == 0) {
+    std::cout << "There are no contacts in this phonebook!" << std::endl;
+    return;
+  }
   for (int i = 1; i <= n_contacts_; ++i) {
     std::cout.width(10);
     std::cout << i << " | ";
@@ -56,22 +80,34 @@ void PhoneBook::searchContacts(void) {
 
 // Prints contact details of Contact[i]
 void PhoneBook::printContact(void) {
-  int i;
+  std::string input;
+  int index;
+
   std::cout << "Enter the index of the contact you want to view: " << std::endl;
-  std::cin >> i;
-  if (0 <= i && i <= n_contacts_) {
+  getline(std::cin, input);
+  if (std::cin.eof()) exit(0);
+  for (std::string::iterator it = input.begin(); it != input.end(); ++it) {
+    if (isdigit((int)*it) == 0) {
+      goto error_point;
+    }
+  }
+  index = std::stoi(input);
+
+  if (0 < index && index <= n_contacts_) {
     std::cout << "First name: ";
-    std::cout << contacts_[i - 1].getFirstName() << std::endl;
+    std::cout << contacts_[index - 1].getFirstName() << std::endl;
     std::cout << "Last name: ";
-    std::cout << contacts_[i - 1].getLastName() << std::endl;
+    std::cout << contacts_[index - 1].getLastName() << std::endl;
     std::cout << "Nickname: ";
-    std::cout << contacts_[i - 1].getNickname() << std::endl;
+    std::cout << contacts_[index - 1].getNickname() << std::endl;
     std::cout << "Phone number: ";
-    std::cout << contacts_[i - 1].getPhoneNumber() << std::endl;
+    std::cout << contacts_[index - 1].getPhoneNumber() << std::endl;
     std::cout << "Darkest secret: ";
-    std::cout << contacts_[i - 1].getDarkestSecret() << std::endl << std::endl;
+    std::cout << contacts_[index - 1].getDarkestSecret() << std::endl
+              << std::endl;
   } else {
-    std::cout << "Index out of range" << std::endl;
+  error_point:
+    std::cout << "Invalid index!" << std::endl;
   }
   return;
 }
