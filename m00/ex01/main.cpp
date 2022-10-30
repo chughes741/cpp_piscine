@@ -8,13 +8,16 @@ int main() {
   while (1) {
     std::cout << "Enter command: ADD, SEARCH, EXIT" << std::endl;
     getline(std::cin, input);
-    if (input.compare("ADD") == 0) {
+    if (std::cin.eof()) {
+      exit(0);
+    } else if (input.compare("ADD") == 0) {
       pb.addContact();
     } else if (input.compare("SEARCH") == 0) {
       pb.searchContacts();
     } else if (input.compare("EXIT") == 0) {
       break;
-    }
+    } else
+      input.clear();
   }
   return 0;
 }
