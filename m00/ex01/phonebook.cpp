@@ -2,7 +2,7 @@
 #include "PhoneBook.hpp"
 
 // Default constructor method
-PhoneBook::PhoneBook(void) { return; }
+PhoneBook::PhoneBook(void) : n_contacts_(0), add_position_(0) { return; }
 
 // Default deconstructor method
 PhoneBook::~PhoneBook() { return; }

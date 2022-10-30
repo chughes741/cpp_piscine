@@ -22,9 +22,10 @@ class PhoneBook {
 
  private:
   void printContact(void);
+
+  Contact contacts_[8];
   int n_contacts_;
   int add_position_;
-  Contact contacts_[8];
 };
 
 #endif  // PHONEBOOK_H_
