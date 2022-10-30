@@ -2,13 +2,7 @@
 #include "Contact.hpp"
 
 // Default constructor method
-Contact::Contact(void)
-    : f_contact_setters_({setFirstName, setLastName, setNickname,
-                          setPhoneNumber, setDarkestSecret}),
-      field_names_({"first name", "last name", "nickname", "phone number",
-                    "darkest secret"}) {
-  return;
-}
+Contact::Contact(void) { return; }
 
 // Default destructor method
 Contact::~Contact(void) { return; }

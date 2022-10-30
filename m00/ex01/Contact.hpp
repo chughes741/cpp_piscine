@@ -25,9 +25,6 @@ class Contact {
   const std::string &getPhoneNumber() const;
   const std::string &getDarkestSecret() const;
 
-  void (*f_contact_setters_[5])(std::string);
-  std::string field_names_[5];
-
  private:
   std::string first_name_;
   std::string last_name_;
