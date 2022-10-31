@@ -26,8 +26,8 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I.
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	main.cpp bsp.cpp Fixed.cpp Point.cpp
-SRCS	=	main.cpp
+NAME	=	test
+SRCS	=	main.cpp bsp.cpp Fixed.cpp Point.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)
 

@@ -9,12 +9,12 @@ class Point {
  public:
   Point();
   Point(const float x, const float y);
-  Point(const Point &point);
+  Point(const Point &other);
+  Point &operator=(const Point &rhs);
   ~Point();
-  Point &operator=(const Point &point);
 
-  const Fixed getX(void) const;
-  const Fixed getY(void) const;
+  const Fixed getX() const;
+  const Fixed getY() const;
 
  private:
   const Fixed x_;

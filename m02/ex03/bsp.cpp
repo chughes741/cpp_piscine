@@ -14,10 +14,11 @@ int getSide(const Point a, const Point b, const Point c) {
 
 // Returns true if point is inside triable a, b, c
 bool bsp(const Point a, const Point b, const Point c, const Point point) {
-  if ((getSide(a, b, point) > 0 && getSide(b, c, point) > 0 &&
-       getSide(c, a, point) > 0) ||
-      (getSide(a, b, point) < 0 && getSide(b, c, point) < 0 &&
-       getSide(c, a, point) < 0))
+  if (getSide(a, b, point) > 0 && getSide(b, c, point) > 0 &&
+      getSide(c, a, point) > 0)
+    return true;
+  else if (getSide(a, b, point) < 0 && getSide(b, c, point) < 0 &&
+           getSide(c, a, point) < 0)
     return true;
   else
     return false;
