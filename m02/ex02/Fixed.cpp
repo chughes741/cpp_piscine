@@ -2,7 +2,7 @@
 #include "Fixed.hpp"
 
 // Default constructor
-Fixed::Fixed(void) : raw_bits_(0) { return; }
+Fixed::Fixed() : raw_bits_(0) { return; }
 
 // Integer to fixed constructor
 Fixed::Fixed(const int i_number) : raw_bits_(i_number << point_) { return; }
@@ -18,9 +18,6 @@ Fixed::Fixed(const Fixed &other) {
   *this = other;
   return;
 }
-
-// Default destructor
-Fixed::~Fixed(void) { return; }
 
 // Assignment operator overload
 Fixed &Fixed::operator=(const Fixed &rhs) {
@@ -112,19 +109,22 @@ Fixed Fixed::operator--(int) {
   return temp;
 }
 
+// Default destructor
+Fixed::~Fixed() { return; }
+
 // raw_bits_ getter
-int Fixed::getRawBits(void) const { return (raw_bits_); }
+int Fixed::getRawBits() const { return (raw_bits_); }
 
 // raw_bits_ setter
 void Fixed::setRawBits(int const raw) { raw_bits_ = raw; }
 
 // Returns raw_bits_ as a float
-float Fixed::toFloat(void) const {
+float Fixed::toFloat() const {
   return ((float)raw_bits_ / (float)(1 << point_));
 }
 
 // Returns raw_bits_ as an integer
-int Fixed::toInt(void) const { return ((raw_bits_ >> 8) & 0xffffff); }
+int Fixed::toInt() const { return ((raw_bits_ >> 8) & 0xffffff); }
 
 // min() function overload for fixed point
 Fixed &Fixed::min(Fixed &a, Fixed &b) {

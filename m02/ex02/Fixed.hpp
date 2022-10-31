@@ -7,12 +7,14 @@
 
 // Fixed class definition
 class Fixed {
+ private:
+  static const int point_ = 8;
+
  public:
-  Fixed(void);
+  Fixed();
   Fixed(const int i_number);
   Fixed(const float f_number);
   Fixed(const Fixed &other);
-  ~Fixed();
   Fixed &operator=(const Fixed &rhs);
   bool operator>(const Fixed &rhs) const;
   bool operator<(const Fixed &rhs) const;
@@ -28,19 +30,19 @@ class Fixed {
   Fixed &operator--();
   Fixed operator++(int);
   Fixed operator--(int);
-
-  int getRawBits(void) const;
-  void setRawBits(int const raw);
-  float toFloat(void) const;
-  int toInt(void) const;
+  ~Fixed();
 
   static Fixed &min(Fixed &a, Fixed &b);
   static const Fixed &min(const Fixed &a, const Fixed &b);
   static Fixed &max(Fixed &a, Fixed &b);
   static const Fixed &max(const Fixed &a, const Fixed &b);
 
+  int getRawBits() const;
+  void setRawBits(int const raw);
+  float toFloat() const;
+  int toInt() const;
+
  private:
-  static const int point_ = 8;
   int raw_bits_;
 };
 
