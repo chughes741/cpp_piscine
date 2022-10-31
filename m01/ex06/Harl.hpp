@@ -8,15 +8,13 @@
 // Enum for filter level
 enum FilterLevel { kDebug = 0, kInfo = 1, kWarning = 2, kError = 3 };
 
-// Harl class
+// Harl class definition
 class Harl {
  public:
   static void setFilterLevel(std::string filter_level);
 
   Harl(void);
-  Harl(const Harl &harl);
   ~Harl();
-  Harl &operator=(const Harl &harl);
 
   void complain(std::string level);
 

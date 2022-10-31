@@ -1,6 +1,8 @@
 
 #include "Harl.hpp"
 
+FilterLevel Harl::filter_level_;
+
 // Static method for setting filter levle
 void Harl::setFilterLevel(std::string filter_level) {
   std::string levels[4] = {"debug", "info", "warning", "error"};
