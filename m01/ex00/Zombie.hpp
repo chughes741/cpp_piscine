@@ -5,12 +5,13 @@
 #include <iostream>
 #include <string>
 
+// Zombie class definition
 class Zombie {
  public:
   Zombie(std::string new_name);
-  Zombie(const Zombie &zombie);
+  Zombie(const Zombie &other);
   ~Zombie();
-  Zombie &operator=(const Zombie &zombie);
+  Zombie &operator=(const Zombie &rhs);
 
   void announce(void);
 

@@ -8,9 +8,9 @@
 int main() {
   randomChump("Chris");
 
-  Zombie* jenny = newZombie("Jenny");
-  jenny->announce();
+  Zombie* sean = newZombie("Jenny");
+  sean->announce();
 
-  delete jenny;
+  delete sean;
   return 0;
 }
