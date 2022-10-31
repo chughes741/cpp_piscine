@@ -7,14 +7,16 @@
 
 #include "Weapon.hpp"
 
+// HumanA class definition
 class HumanA {
  public:
   HumanA(std::string newname, Weapon &newweapon);
-  HumanA(const HumanA &humana);
   ~HumanA();
-  HumanA &operator=(const HumanA &humana);
+  HumanA &operator=(const HumanA &rhs);
 
-  void attack(void);
+  const std::string &getName() const;
+  const Weapon &getWeapon() const;
+  void attack();
 
  private:
   std::string name_;

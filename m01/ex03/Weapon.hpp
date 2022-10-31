@@ -4,15 +4,15 @@
 
 #include <string>
 
-// Weapon class
+// Weapon class definition
 class Weapon {
  public:
   Weapon(std::string weaponname);
-  Weapon(const Weapon &weapon);
+  Weapon(const Weapon &other);
   ~Weapon();
-  Weapon &operator=(const Weapon &weapon);
+  Weapon &operator=(const Weapon &rhs);
 
-  const std::string &getType(void);
+  const std::string &getType(void) const;
   void setType(std::string newtype);
 
  private:
