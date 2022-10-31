@@ -3,22 +3,22 @@
 #define FIXED_HPP_
 
 #include <iomanip>
-#include <ostream>
+#include <iostream>
 
 // Fixed class definition
 class Fixed {
  public:
-  Fixed(void);
+  Fixed();
   Fixed(const int i_number);
   Fixed(const float f_number);
   Fixed(const Fixed &other);
   ~Fixed();
   Fixed &operator=(const Fixed &rhs);
 
-  int getRawBits(void);
+  int getRawBits() const;
   void setRawBits(int const raw);
-  float toFloat(void) const;
-  int toInt(void) const;
+  float toFloat() const;
+  int toInt() const;
 
  private:
   static const int point_ = 8;
