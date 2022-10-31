@@ -5,21 +5,20 @@
 #include <iostream>
 #include <string>
 
-// Harl class
+// Harl class definition
 class Harl {
  public:
-  Harl(void);
-  Harl(const Harl &harl);
+  Harl();
+  Harl(const Harl &other);
   ~Harl();
-  Harl &operator=(const Harl &harl);
 
   void complain(std::string level);
 
  private:
-  void debug(void);
-  void info(void);
-  void warning(void);
-  void error(void);
+  void debug();
+  void info();
+  void warning();
+  void error();
 };
 
 #endif  // HARL_HPP_

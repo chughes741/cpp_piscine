@@ -2,10 +2,19 @@
 #include "Harl.hpp"
 
 // Default constructor
-Harl::Harl(void) { return; }
+Harl::Harl() { return; }
+
+// Copy constructor
+Harl::Harl(const Harl &other) {
+  *this = other;
+  return;
+}
 
 // Default destructor
-Harl::~Harl() { return; }
+Harl::~Harl() {
+  std::cout << "Harl has been destroyed" << std::endl;
+  return;
+}
 
 // Complain method
 void Harl::complain(std::string level) {
