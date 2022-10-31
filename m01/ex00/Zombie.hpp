@@ -13,7 +13,9 @@ class Zombie {
   ~Zombie();
   Zombie &operator=(const Zombie &rhs);
 
-  void announce(void);
+  void Zombie::setName(std::string name);
+  std::string Zombie::getName() const;
+  void announce();
 
  private:
   std::string name_;
