@@ -2,16 +2,18 @@
 #ifndef FIXED_HPP_
 #define FIXED_HPP_
 
+#include <iostream>
+
 // Fixed class definition
 class Fixed {
  public:
-  Fixed(void);
-  Fixed(const Fixed &fixed);
+  Fixed();
+  Fixed(const Fixed &other);
   ~Fixed();
-  Fixed &operator=(const Fixed &fixed);
+  Fixed &operator=(const Fixed &rhs);
 
-  int getRawBits(void);
-  void setRawBits(int const raw);
+  int getRawBits() const;
+  void setRawBits(const int raw);
 
  private:
   static const int point_ = 8;
