@@ -16,8 +16,8 @@ ClapTrap::ClapTrap(const ClapTrap &other) {
 }
 
 // Copy assignment overload
-ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
-  (void)other;
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
+  (void)rhs;
   return *this;
 }
 

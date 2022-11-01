@@ -9,8 +9,8 @@
 class ClapTrap {
  public:
   ClapTrap(std::string name);
-  ClapTrap(const ClapTrap &claptrap);
-  ClapTrap &operator=(const ClapTrap &other);
+  ClapTrap(const ClapTrap &other);
+  ClapTrap &operator=(const ClapTrap &rhs);
   ~ClapTrap();
 
   void attack(const std::string &target);
