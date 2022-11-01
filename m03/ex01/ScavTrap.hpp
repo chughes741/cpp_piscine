@@ -8,10 +8,10 @@
 // Class declaration
 class ScavTrap : public ClapTrap {
  public:
-	ScavTrap(std::string name);
-	~ScavTrap();
+  ScavTrap(std::string name);
+  ~ScavTrap();
 
-	void guardGate();
+  void guardGate();
 };
 
-#endif // SCAVTRAP_HPP_
+#endif  // SCAVTRAP_HPP_

@@ -9,7 +9,8 @@
 class ClapTrap {
  public:
   ClapTrap(std::string name);
-  ClapTrap(std::string name, unsigned int hit_points, unsigned int energy_points, unsigned int attack_damage);
+  ClapTrap(std::string name, unsigned int hit_points,
+           unsigned int energy_points, unsigned int attack_damage);
   ClapTrap(const ClapTrap &other);
   ClapTrap &operator=(const ClapTrap &rhs);
   ~ClapTrap();
