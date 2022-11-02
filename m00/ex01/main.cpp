@@ -26,51 +26,68 @@ int main() {
 }
 
 void addEightContacts(PhoneBook *pb) {
-  pb->contacts_[0].setFirstName("Cole");
-  pb->contacts_[0].setLastName("Hughes");
-  pb->contacts_[0].setNickname("Cole");
-  pb->contacts_[0].setPhoneNumber("123");
-  pb->contacts_[0].setDarkestSecret("I like tea");
+  pb->contacts_[pb->add_position_].setFirstName("Cole");
+  pb->contacts_[pb->add_position_].setLastName("Hughes");
+  pb->contacts_[pb->add_position_].setNickname("Cole");
+  pb->contacts_[pb->add_position_].setPhoneNumber("123");
+  pb->contacts_[pb->add_position_].setDarkestSecret("I like tea");
+  pb->n_contacts_++;
+  pb->add_position_++;
 
-  pb->contacts_[1].setFirstName("Antoine");
-  pb->contacts_[1].setLastName("Boisvert");
-  pb->contacts_[1].setNickname("Tony");
-  pb->contacts_[1].setPhoneNumber("234");
-  pb->contacts_[1].setDarkestSecret("He likes vim");
+  pb->contacts_[pb->add_position_].setFirstName("Antoine");
+  pb->contacts_[pb->add_position_].setLastName("Boisvert");
+  pb->contacts_[pb->add_position_].setNickname("Tony");
+  pb->contacts_[pb->add_position_].setPhoneNumber("234");
+  pb->contacts_[pb->add_position_].setDarkestSecret("He likes vim");
+  pb->n_contacts_++;
+  pb->add_position_++;
 
-  pb->contacts_[2].setFirstName("Chirs");
-  pb->contacts_[2].setLastName("Andre");
-  pb->contacts_[2].setNickname("Big C");
-  pb->contacts_[2].setPhoneNumber("345");
-  pb->contacts_[2].setDarkestSecret("He doesn't exist");
+  pb->contacts_[pb->add_position_].setFirstName("Chirs");
+  pb->contacts_[pb->add_position_].setLastName("Andre");
+  pb->contacts_[pb->add_position_].setNickname("Big C");
+  pb->contacts_[pb->add_position_].setPhoneNumber("345");
+  pb->contacts_[pb->add_position_].setDarkestSecret("He doesn't exist");
+  pb->n_contacts_++;
+  pb->add_position_++;
 
-  pb->contacts_[3].setFirstName("Kim");
-  pb->contacts_[3].setLastName("K");
-  pb->contacts_[3].setNickname("CC");
-  pb->contacts_[3].setPhoneNumber("456");
-  pb->contacts_[3].setDarkestSecret("She isn't real");
+  pb->contacts_[pb->add_position_].setFirstName("Kim");
+  pb->contacts_[pb->add_position_].setLastName("K");
+  pb->contacts_[pb->add_position_].setNickname("CC");
+  pb->contacts_[pb->add_position_].setPhoneNumber("456");
+  pb->contacts_[pb->add_position_].setDarkestSecret("She isn't real");
+  pb->n_contacts_++;
+  pb->add_position_++;
 
-  pb->contacts_[4].setFirstName("Paul");
-  pb->contacts_[4].setLastName("James");
-  pb->contacts_[4].setNickname("Pauly");
-  pb->contacts_[4].setPhoneNumber("567");
-  pb->contacts_[4].setDarkestSecret("Tuna fish");
+  pb->contacts_[pb->add_position_].setFirstName("Paul");
+  pb->contacts_[pb->add_position_].setLastName("James");
+  pb->contacts_[pb->add_position_].setNickname("Pauly");
+  pb->contacts_[pb->add_position_].setPhoneNumber("567");
+  pb->contacts_[pb->add_position_].setDarkestSecret("Tuna fish");
+  pb->n_contacts_++;
+  pb->add_position_++;
 
-  pb->contacts_[5].setFirstName("Alan");
-  pb->contacts_[5].setLastName("Paul");
-  pb->contacts_[5].setNickname("Ape");
-  pb->contacts_[5].setPhoneNumber("678");
-  pb->contacts_[5].setDarkestSecret("Macrohard");
+  pb->contacts_[pb->add_position_].setFirstName("Alan");
+  pb->contacts_[pb->add_position_].setLastName("Paul");
+  pb->contacts_[pb->add_position_].setNickname("Ape");
+  pb->contacts_[pb->add_position_].setPhoneNumber("678");
+  pb->contacts_[pb->add_position_].setDarkestSecret("Macrohard");
+  pb->n_contacts_++;
+  pb->add_position_++;
 
-  pb->contacts_[6].setFirstName("Kyle");
-  pb->contacts_[6].setLastName("Stevens");
-  pb->contacts_[6].setNickname("Kimmy");
-  pb->contacts_[6].setPhoneNumber("789");
-  pb->contacts_[6].setDarkestSecret("Likes cats");
+  pb->contacts_[pb->add_position_].setFirstName("Kyle");
+  pb->contacts_[pb->add_position_].setLastName("Stevens");
+  pb->contacts_[pb->add_position_].setNickname("Kimmy");
+  pb->contacts_[pb->add_position_].setPhoneNumber("789");
+  pb->contacts_[pb->add_position_].setDarkestSecret("Likes cats");
+  pb->n_contacts_++;
+  pb->add_position_++;
 
-  pb->contacts_[7].setFirstName("Alain");
-  pb->contacts_[7].setLastName("Prost");
-  pb->contacts_[7].setNickname("Al");
-  pb->contacts_[7].setPhoneNumber("890");
-  pb->contacts_[7].setDarkestSecret("Hates Ferrari");
+  pb->contacts_[pb->add_position_].setFirstName("Alain");
+  pb->contacts_[pb->add_position_].setLastName("Prost");
+  pb->contacts_[pb->add_position_].setNickname("Al");
+  pb->contacts_[pb->add_position_].setPhoneNumber("890");
+  pb->contacts_[pb->add_position_].setDarkestSecret("Hates Ferrari");
+  pb->n_contacts_++;
+  pb->add_position_++;
+
 }

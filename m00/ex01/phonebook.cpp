@@ -80,18 +80,18 @@ void PhoneBook::searchContacts(void) {
 
 // Prints contact details of Contact[i]
 void PhoneBook::printContact(void) {
-  std::string input;
-  int index;
 
+  std::string input;
   std::cout << "Enter the index of the contact you want to view: " << std::endl;
   getline(std::cin, input);
   if (std::cin.eof()) exit(0);
-  for (std::string::iterator it = input.begin(); it != input.end(); ++it) {
-    if (isdigit((int)*it) == 0) {
-      goto error_point;
-    }
+
+  int index;
+  try {
+    index = std::stoi(input);
+  } catch (std::out_of_range) {
+    index = -1;
   }
-  index = std::stoi(input);
 
   if (0 < index && index <= n_contacts_) {
     std::cout << "First name: ";
@@ -106,7 +106,6 @@ void PhoneBook::printContact(void) {
     std::cout << contacts_[index - 1].getDarkestSecret() << std::endl
               << std::endl;
   } else {
-  error_point:
     std::cout << "Invalid index!" << std::endl;
   }
   return;
