@@ -5,7 +5,7 @@
 #include "ClapTrap.hpp"
 
 // Class declaration
-class ScavTrap : public virtual ClapTrap {
+class ScavTrap : virtual public ClapTrap {
  public:
   ScavTrap(std::string name);
   ScavTrap(const ScavTrap &other);

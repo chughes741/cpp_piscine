@@ -1,9 +1,6 @@
 
 #include "FragTrap.hpp"
 
-// Default constructor
-FragTrap::FragTrap() { return; }
-
 // Named constructor
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 50, 20) {
   std::cout << "FragTrap constructed" << std::endl;

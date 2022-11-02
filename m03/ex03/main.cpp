@@ -3,6 +3,8 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
+// TODO fix multiple inheritance
+
 int main() {
   ClapTrap bob = ClapTrap("Bob"), cole = ClapTrap("Cole");
 
