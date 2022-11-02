@@ -20,11 +20,10 @@ class PhoneBook {
   void addContact(void);
   void searchContacts(void);
 
-  //RBS make private
+ private:
   Contact contacts_[8];
   int n_contacts_;
   int add_position_;
- private:
   void printContact(void);
 
 };

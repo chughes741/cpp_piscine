@@ -91,6 +91,8 @@ void PhoneBook::printContact(void) {
     index = std::stoi(input);
   } catch (std::out_of_range) {
     index = -1;
+  } catch (std::invalid_argument) {
+    index = -1;
   }
 
   if (0 < index && index <= n_contacts_) {
