@@ -9,7 +9,7 @@ PhoneBook::~PhoneBook() { return; }
 
 // Method for adding new contact information
 void PhoneBook::addContact(void) {
-  if (n_contacts_ == 8 && add_position_ == 8)
+  if (n_contacts_ == 8 && add_position_ == 7)
     add_position_ = 0;
   else if (n_contacts_ == 8)
     add_position_ += 1;
