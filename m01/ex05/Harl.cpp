@@ -25,8 +25,12 @@ void Harl::complain(std::string level) {
   void (Harl::*f_level[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
                                     &Harl::error};
   for (int i = 0; i < 4; ++i) {
-    if (level.compare(levels[i]) == 0) (this->*f_level[i])();
+    if (level.compare(levels[i]) == 0) {
+      (this->*f_level[i])();
+      return;
+    }
   }
+  std::cout << "That's not a real level!" << std::endl;
   return;
 }
 
