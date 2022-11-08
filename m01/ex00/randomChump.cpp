@@ -1,7 +1,4 @@
 
-
-#include <string>
-
 #include "Zombie.hpp"
 
 // Creates a statically allocated Zombie

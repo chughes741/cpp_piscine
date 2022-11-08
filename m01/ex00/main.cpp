@@ -1,8 +1,4 @@
 
-
-#include <iostream>
-#include <string>
-
 #include "Zombie.hpp"
 
 int main() {
@@ -11,6 +7,9 @@ int main() {
   Zombie* sean = newZombie("Jenny");
   sean->announce();
 
+  Zombie* paul = sean;
+  paul->setName("paul");
+  paul->announce();
   delete sean;
   return 0;
 }

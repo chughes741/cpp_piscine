@@ -1,21 +1,15 @@
 
-
 #include "Zombie.hpp"
 
-#include <iostream>
-
 // Default constructor
-Zombie::Zombie(std::string new_name) : name_(new_name) { return; }
-
-// Copy assignment
-Zombie::Zombie(const Zombie &other) {
-  *this = other;
+Zombie::Zombie(std::string new_name) : name_(new_name) {
+  std::cout << name_ << " has been created" << std::endl;
   return;
 }
 
-// Default destructor
-Zombie::~Zombie() {
-  std::cout << name_ << " has been destroyed" << std::endl;
+// Copy constructor
+Zombie::Zombie(const Zombie &other) {
+  *this = other;
   return;
 }
 
@@ -23,6 +17,12 @@ Zombie::~Zombie() {
 Zombie &Zombie::operator=(const Zombie &rhs) {
   this->name_ = rhs.getName();
   return *this;
+}
+
+// Default destructor
+Zombie::~Zombie() {
+  std::cout << name_ << " has been destroyed" << std::endl;
+  return;
 }
 
 // name_ setter

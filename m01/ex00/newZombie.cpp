@@ -1,7 +1,4 @@
 
-
-#include <iostream>
-
 #include "Zombie.hpp"
 
 // Creates a dynamically allocated Zombie
