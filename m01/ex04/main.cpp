@@ -1,5 +1,4 @@
 
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -25,10 +24,11 @@ int main(int argc, char **argv) {
   }
 
   std::size_t position = text.find(s1);
-  while (position != std::string::npos) {
+  while (position != std::string::npos && position < text.length()) {
     text.erase(position, s1.length());
     text.insert(position, s2);
-    position = text.find(s1);
+    position += s2.length();
+    position = text.find(s1, position);
   }
 
   output << text << std::endl;
