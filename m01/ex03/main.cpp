@@ -1,6 +1,4 @@
 
-#include <string>
-
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 #include "Weapon.hpp"
@@ -14,6 +12,7 @@ int main() {
     club.setType("some other type of club");
     bob.attack();
   }
+  std::cout << std::endl;
   {
     Weapon club = Weapon("crude spiked club");
 

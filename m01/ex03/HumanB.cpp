@@ -27,7 +27,7 @@ void HumanB::setName(std::string name) {
 Weapon *HumanB::getWeapon() const { return myweapon_; }
 
 // myweapon_ setter
-void HumanB::setWeapon(Weapon weaponname) {
+void HumanB::setWeapon(Weapon &weaponname) {
   myweapon_ = &weaponname;
   return;
 }
