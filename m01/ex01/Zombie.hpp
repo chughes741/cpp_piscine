@@ -11,8 +11,8 @@ class Zombie {
   Zombie();
   Zombie(std::string new_name);
   Zombie(const Zombie &other);
-  ~Zombie();
   Zombie &operator=(const Zombie &rhs);
+  ~Zombie();
 
   void setName(std::string name);
   std::string getName() const;
@@ -22,6 +22,7 @@ class Zombie {
   std::string name_;
 };
 
+// Zombie generation functions
 Zombie *zombieHorde(int N, std::string name);
 
 #endif  // ZOMBIE_HPP_

@@ -1,14 +1,17 @@
 
-
 #include "Zombie.hpp"
 
-#include <iostream>
-
 // Default constructor
-Zombie::Zombie() { return; }
+Zombie::Zombie() {
+  std::cout << "A nameless zombie has been created" << std::endl;
+  return;
+}
 
-// Constructor with name
-Zombie::Zombie(std::string new_name) : name_(new_name) { return; }
+// Named constructor
+Zombie::Zombie(std::string new_name) : name_(new_name) {
+  std::cout << name_ << " has been created" << std::endl;
+  return;
+}
 
 // Copy constructor
 Zombie::Zombie(const Zombie &other) {
@@ -16,16 +19,16 @@ Zombie::Zombie(const Zombie &other) {
   return;
 }
 
-// Default destructor
-Zombie::~Zombie() {
-  std::cout << name_ << " has been deleted" << std::endl;
-  return;
-}
-
-// Copy operator overload
+// Assignment operator overload
 Zombie &Zombie::operator=(const Zombie &rhs) {
   this->name_ = rhs.getName();
   return *this;
+}
+
+// Default destructor
+Zombie::~Zombie() {
+  std::cout << name_ << " has been destroyed" << std::endl;
+  return;
 }
 
 // name_ setter
@@ -37,8 +40,8 @@ void Zombie::setName(std::string name) {
 // name_ getter
 std::string Zombie::getName() const { return name_; }
 
-// name_ display to std::cout
+// Method to announce zombies presence
 void Zombie::announce() {
-  std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;
+  std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << std::endl;
   return;
 }

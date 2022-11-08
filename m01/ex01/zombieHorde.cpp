@@ -1,7 +1,4 @@
 
-
-#include <string>
-
 #include "Zombie.hpp"
 
 // Generates an array of Zombies
