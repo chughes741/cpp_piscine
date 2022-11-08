@@ -2,7 +2,10 @@
 #include "Harl.hpp"
 
 // Default constructor
-Harl::Harl() { return; }
+Harl::Harl() {
+  std::cout << "You've created a monster!" << std::endl;
+  return;
+}
 
 // Copy constructor
 Harl::Harl(const Harl &other) {
