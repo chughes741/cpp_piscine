@@ -1,9 +1,6 @@
 
-#include <iostream>
-
 #include "Fixed.hpp"
 
-// TODO add tests
 int main() {
   Fixed point1, point2;
 

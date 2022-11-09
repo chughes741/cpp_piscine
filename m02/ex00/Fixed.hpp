@@ -6,17 +6,19 @@
 
 // Fixed class definition
 class Fixed {
+ private:
+  static const int point_;
+
  public:
   Fixed();
   Fixed(const Fixed &other);
-  ~Fixed();
   Fixed &operator=(const Fixed &rhs);
+  ~Fixed();
 
   int getRawBits() const;
   void setRawBits(const int raw);
 
  private:
-  static const int point_ = 8;
   int raw_bits_;
 };
 
