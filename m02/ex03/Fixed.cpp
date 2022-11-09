@@ -1,6 +1,8 @@
 
 #include "Fixed.hpp"
 
+const int Fixed::point_ = 8;
+
 // Default constructor
 Fixed::Fixed() : raw_bits_(0) { return; }
 
@@ -124,7 +126,7 @@ float Fixed::toFloat() const {
 }
 
 // Returns raw_bits_ as an integer
-int Fixed::toInt() const { return ((raw_bits_ >> 8) & 0xffffff); }
+int Fixed::toInt() const { return ((raw_bits_ ^ point_) >> point_); }
 
 // min() function overload for fixed point
 Fixed &Fixed::min(Fixed &a, Fixed &b) {

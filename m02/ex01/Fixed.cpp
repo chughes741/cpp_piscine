@@ -1,19 +1,21 @@
 
 #include "Fixed.hpp"
 
+const int Fixed::point_ = 8;
+
 // Default constructor
 Fixed::Fixed() : raw_bits_(0) {
   std::cout << "Default constructor called" << std::endl;
   return;
 }
 
-// Integer to fixed constructor
+// Integer to fixed constructor overload
 Fixed::Fixed(const int i_number) : raw_bits_(i_number << point_) {
   std::cout << "Integer constructor called" << std::endl;
   return;
 }
 
-// Float to fixed constructor
+// Float to fixed constructor overload
 Fixed::Fixed(const float f_number) : raw_bits_(f_number * pow(2, point_)) {
   std::cout << "Float constructor called" << std::endl;
   return;
@@ -35,7 +37,7 @@ Fixed::~Fixed() {
 // Copy assignment overload
 Fixed &Fixed::operator=(const Fixed &rhs) {
   std::cout << "Copy assignment overload called" << std::endl;
-  this->raw_bits_ = rhs.raw_bits_;
+  this->raw_bits_ = rhs.getRawBits();
   return *this;
 }
 
@@ -51,7 +53,7 @@ float Fixed::toFloat() const {
 }
 
 // Returns raw_bits_ as an integer
-int Fixed::toInt() const { return ((raw_bits_ >> 8) & 0xffffff); }
+int Fixed::toInt() const { return ((raw_bits_ ^ point_) >> point_); }
 
 // Output stream insertion
 std::ostream &operator<<(std::ostream &os, const Fixed &rhs) {

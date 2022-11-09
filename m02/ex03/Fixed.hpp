@@ -8,7 +8,7 @@
 // Fixed class definition
 class Fixed {
  private:
-  static const int point_ = 8;
+  static const int point_;
 
  public:
   Fixed();
