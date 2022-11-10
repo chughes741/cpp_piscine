@@ -7,13 +7,12 @@
 // Class declaration
 class Cat : public Animal {
  public:
-	Cat();
-	Cat(const Cat &other);
-	Cat &operator=(const Cat &rhs);
-	~Cat();
-
- private:
-	
+  Cat();
+  Cat(const Cat &other);
+  Cat &operator=(const Cat &rhs);
+  ~Cat();
+  
+  void makeSound() const;
 };
 
-#endif // CAT_HPP_
+#endif  // CAT_HPP_

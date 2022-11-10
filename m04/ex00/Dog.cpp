@@ -2,13 +2,13 @@
 #include "Dog.hpp"
 
 // Default constructor
-Dog::Dog() : Animal("dog") {
+Dog::Dog() : Animal("Dog") {
 	std::cout << "A dog has been constructed" << std::endl;
 	return;
 }
 
 // Copy constructor
-Dog::Dog(const Dog &other) : Animal("dog") {
+Dog::Dog(const Dog &other) : Animal("Dog") {
 	std::cout << "A dog has been copy constructed" << std::endl;
 	*this = other;
 	return;
@@ -24,4 +24,9 @@ Dog &Dog::operator=(const Dog &rhs) {
 Dog::~Dog() {
 	std::cout << "A dog has been destroyed" << std::endl;
 	return;
+}
+
+// makeSound method overload
+void Dog::makeSound() const {
+	std::cout << "Woof" << std::endl;
 }

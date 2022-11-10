@@ -2,13 +2,13 @@
 #include "Cat.hpp"
 
 // Default constructor
-Cat::Cat() : Animal("cat") {
+Cat::Cat() : Animal("Cat") {
   std::cout << "A cat has been constructed" << std::endl;
   return;
 }
 
 // Copy constructor
-Cat::Cat(const Cat &other) : Animal("cat") {
+Cat::Cat(const Cat &other) : Animal("Cat") {
   std::cout << "A cat has been copy constructed" << std::endl;
   *this = other;
   return;
@@ -24,4 +24,9 @@ Cat &Cat::operator=(const Cat &rhs) {
 Cat::~Cat() {
   std::cout << "A cat has been destroyed" << std::endl;
   return;
+}
+
+// makeSound overload
+void Cat::makeSound() const {
+  std::cout << "Meow" << std::endl;
 }

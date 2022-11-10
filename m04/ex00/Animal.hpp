@@ -8,14 +8,16 @@
 // Class declaration
 class Animal {
  public:
+  Animal();
   Animal(std::string type);
   Animal(const Animal &other);
   Animal &operator=(const Animal &rhs);
-  ~Animal();
+  virtual ~Animal();
 
   std::string getType() const;
-	void makeSound();
- private:
+	virtual void makeSound() const;
+
+ protected:
   std::string type_;
 };
 

@@ -2,6 +2,12 @@
 #include "Animal.hpp"
 
 // Default constructor
+Animal::Animal() {
+  std::cout << "An animal has been constructed" << std::endl;
+  return;
+}
+
+// Default constructor overload
 Animal::Animal(std::string type) : type_(type) {
   std::cout << "An animal has been constructed" << std::endl;
   return;
@@ -24,4 +30,14 @@ Animal &Animal::operator=(const Animal &rhs) {
 Animal::~Animal() {
   std::cout << "An animal has been destroyed" << std::endl;
   return;
+}
+
+// type_ getter
+std::string Animal::getType() const {
+  return type_;
+}
+
+// Make sound method
+void Animal::makeSound() const {
+  std::cout << "Animals are a concept, ideas don't make sounds!" << std::endl;
 }

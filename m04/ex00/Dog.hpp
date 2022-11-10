@@ -12,8 +12,7 @@ class Dog : public Animal {
 	Dog &operator=(const Dog &rhs);
 	~Dog();
 
- private:
-	
+  void makeSound() const;
 };
 
 #endif // DOG_HPP_
