@@ -27,7 +27,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	animals
-SRCS	=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS	=	main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)
 
