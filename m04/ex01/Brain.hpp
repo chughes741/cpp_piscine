@@ -13,10 +13,8 @@ class Brain {
 	Brain &operator=(const Brain &rhs);
 	~Brain();
 
-	const std::string &getIdeas() const;
-
  private:
-	std::string* ideas_;
+	std::string ideas_[100];
 };
 
 #endif // BRAIN_HPP_

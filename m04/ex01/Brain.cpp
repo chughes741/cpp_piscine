@@ -4,7 +4,6 @@
 // Default constructor
 Brain::Brain() {
 	std::cout << "A brain has been constructed" << std::endl;
-	ideas_ = new std::string[100];
 	return;
 }
 
@@ -17,13 +16,12 @@ Brain::Brain(const Brain &other) {
 
 // Copy assignment overload
 Brain &Brain::operator=(const Brain &rhs) {
-	this->ideas_ = rhs.ideas_;
+	(void)rhs;
 	return *this;
 }
 
 // Default destructor
 Brain::~Brain() { 
 	std::cout << "A brain has been destroyed" << std::endl;
-	delete[] ideas_;
 	return;
 }
