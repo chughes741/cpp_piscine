@@ -8,17 +8,6 @@ ClapTrap::ClapTrap(std::string name)
   return;
 }
 
-// Child constructor
-ClapTrap::ClapTrap(std::string name, unsigned int hit_points,
-                   unsigned int energy_points, unsigned int attack_damage)
-    : name_(name),
-      hit_points_(hit_points),
-      energy_points_(energy_points),
-      attack_damage_(attack_damage) {
-  std::cout << "ClapTrap constructed" << std::endl;
-  return;
-}
-
 // Copy constructor
 ClapTrap::ClapTrap(const ClapTrap &other) {
   std::cout << "ClapTrap copy constructed" << std::endl;
@@ -38,6 +27,7 @@ ClapTrap::~ClapTrap() {
   return;
 }
 
+// attack method
 void ClapTrap::attack(const std::string &target) {
   if (energy_points_ == 0) {
     std::cout << name_ << " doesn't have enough energy to attack!" << std::endl;
@@ -49,6 +39,7 @@ void ClapTrap::attack(const std::string &target) {
   return;
 }
 
+// takeDamage method
 void ClapTrap::takeDamage(unsigned int amount) {
   if (amount > hit_points_) amount = hit_points_;
   hit_points_ -= amount;
@@ -56,6 +47,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
   return;
 }
 
+// beRepaired method
 void ClapTrap::beRepaired(unsigned int amount) {
   if (energy_points_ == 0) {
     std::cout << name_ << " doesn't have enough energy to repair itself!"
