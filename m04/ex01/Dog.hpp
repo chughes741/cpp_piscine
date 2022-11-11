@@ -3,6 +3,7 @@
 #define DOG_HPP_
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 // Class declaration
 class Dog : public Animal {
@@ -13,6 +14,8 @@ class Dog : public Animal {
 	~Dog();
 
   void makeSound() const;
+ private:
+	Brain* brain_;
 };
 
 #endif // DOG_HPP_
