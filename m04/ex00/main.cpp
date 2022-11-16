@@ -8,11 +8,15 @@
 
 int main() {
   {
-    const Animal* meta = new Animal();
+    const Animal* meta = new Animal("Unidentified");
+    const Animal* beta = new Animal(*meta);
     meta->makeSound();
+    std::cout << meta->getType() << " " << std::endl;
+    std::cout << beta->getType() << " " << std::endl;
     delete meta;
+    delete beta;
     std::cout << std::endl;
-    
+
     const Animal* i = new Cat();
     std::cout << i->getType() << " " << std::endl;
     i->makeSound();

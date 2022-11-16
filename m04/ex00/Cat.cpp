@@ -10,7 +10,7 @@ Cat::Cat() : Animal("Cat") {
 // Copy constructor
 Cat::Cat(const Cat &other) : Animal("Cat") {
   std::cout << "A cat has been copy constructed" << std::endl;
-  *this = other;
+  this->type_ = other.getType();
   return;
 }
 
