@@ -3,9 +3,9 @@
 
 // Default constructor
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-  attack_damage_ = 100;
-  energy_points_ = 50;
-  attack_damage_ = 20;
+  this->attack_damage_ = 100;
+  this->energy_points_ = 50;
+  this->attack_damage_ = 20;
   std::cout << "ScavTrap constructed" << std::endl;
   return;
 }
