@@ -13,7 +13,10 @@ class Dog : public Animal {
 	Dog &operator=(const Dog &rhs);
 	~Dog();
 
+  std::string getType() const;
   void makeSound() const;
+  const std::string &think(int i) const;
+
  private:
 	Brain* brain_;
 };

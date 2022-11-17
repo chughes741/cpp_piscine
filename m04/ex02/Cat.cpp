@@ -2,13 +2,15 @@
 #include "Cat.hpp"
 
 // Default constructor
-Cat::Cat() : Animal("Cat"), brain_(new Brain()) {
+Cat::Cat() : brain_(new Brain()) {
+  this->type_ = "Cat";
   std::cout << "A cat has been constructed" << std::endl;
   return;
 }
 
 // Copy constructor
-Cat::Cat(const Cat &other) : Animal("Cat"), brain_(new Brain(*other.brain_)) {
+Cat::Cat(const Cat &other) : brain_(new Brain(*other.brain_)) {
+  this->type_ = "Cat";
   std::cout << "A cat has been copy constructed" << std::endl;
   return;
 }
@@ -25,6 +27,9 @@ Cat::~Cat() {
   std::cout << "A cat has been destroyed" << std::endl;
   return;
 }
+
+// type_ getter
+std::string Cat::getType() const { return (type_); }
 
 // makeSound overload
 void Cat::makeSound() const {

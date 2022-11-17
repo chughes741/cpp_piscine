@@ -2,14 +2,15 @@
 #include "Dog.hpp"
 
 // Default constructor
-Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
+Dog::Dog() : brain_(new Brain()) {
+	this->type_ = "Dog";
 	std::cout << "A dog has been constructed" << std::endl;
 	return;
 }
 
 // Copy constructor
-Dog::Dog(const Dog &other) : Animal("Dog"), brain_(new Brain) {
-	*this = other;
+Dog::Dog(const Dog &other) : brain_(new Brain(*other.brain_)) {
+	this->type_ = "Dog";
 	std::cout << "A dog has been copy constructed" << std::endl;
 	return;
 }
@@ -27,7 +28,13 @@ Dog::~Dog() {
 	return;
 }
 
+// type_ getter
+std::string Dog::getType() const { return (type_); }
+
 // makeSound method overload
 void Dog::makeSound() const {
 	std::cout << "Woof" << std::endl;
 }
+
+// Returns an idea from Brain at index i
+const std::string &Dog::think(int i) const { return (brain_->getIdeas(i)); }
