@@ -8,8 +8,7 @@ Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
 }
 
 // Copy constructor
-Dog::Dog(const Dog &other) : Animal("Dog"), brain_(new Brain) {
-	*this = other;
+Dog::Dog(const Dog &other) : Animal("Dog"), brain_(new Brain(*other.brain_)) {
 	std::cout << "A dog has been copy constructed" << std::endl;
 	return;
 }
@@ -31,3 +30,6 @@ Dog::~Dog() {
 void Dog::makeSound() const {
 	std::cout << "Woof" << std::endl;
 }
+
+// Returns an idea from Brain at index i
+const std::string &Dog::think(int i) const { return(brain_->getIdeas(i)); }
