@@ -2,7 +2,7 @@
 #include "Dog.hpp"
 
 // Default constructor
-Dog::Dog() : Animal("Dog"), brain_(new Brain) {
+Dog::Dog() : Animal("Dog"), brain_(new Brain()) {
 	std::cout << "A dog has been constructed" << std::endl;
 	return;
 }

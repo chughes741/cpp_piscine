@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 // Class declaration
 class Brain {
@@ -14,11 +15,9 @@ class Brain {
 	~Brain();
 
 	const std::string &getIdeas(int i) const;
-	void setIdea(std::string newidea);
 
  private:
 	std::string ideas_[100];
-	int n_ideas_;
 };
 
 #endif // BRAIN_HPP_

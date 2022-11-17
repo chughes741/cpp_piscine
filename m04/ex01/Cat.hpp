@@ -14,6 +14,8 @@ class Cat : public Animal {
   ~Cat();
   
   void makeSound() const;
+  const std::string &think(int i) const;
+
  private:
   Brain *brain_;
 };
