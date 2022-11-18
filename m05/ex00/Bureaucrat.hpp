@@ -17,11 +17,6 @@ class Bureaucrat {
   Bureaucrat &operator=(const Bureaucrat &rhs);
   ~Bureaucrat();
 
-  const std::string getName() const;
-  int getGrade() const;
-  void increaseGrade();
-  void decreaseGrade();
-
   class GradeTooHighException : public std::exception {
    public:
     const char *what() const throw();
@@ -30,6 +25,11 @@ class Bureaucrat {
    public:
     const char *what() const throw();
   };
+
+  const std::string getName() const;
+  int getGrade() const;
+  void increaseGrade();
+  void decreaseGrade();
 
  private:
   const std::string name_;

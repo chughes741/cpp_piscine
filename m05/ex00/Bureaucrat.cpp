@@ -34,6 +34,16 @@ Bureaucrat::~Bureaucrat() {
   return;
 }
 
+// GradeTooHigh exception
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+  return ("Grade too high!");
+}
+
+// GradeTooLow exception
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+  return ("Grade too low!");
+}
+
 // name_ getter
 const std::string Bureaucrat::getName() const { return (name_); }
 
@@ -60,18 +70,8 @@ void Bureaucrat::decreaseGrade() {
   return;
 };
 
-// GradeTooHigh exception
-const char *Bureaucrat::GradeTooHighException::what() const throw() {
-  return ("Grade too high!");
-}
-
-// GradeTooLow exception
-const char *Bureaucrat::GradeTooLowException::what() const throw() {
-  return ("Grade too low!");
-}
-
 // Output stream overload for Bureaucrat
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &rhs) {
-  std::cout << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+  os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
   return os;
 }
