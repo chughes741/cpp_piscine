@@ -27,6 +27,4 @@ Cat::~Cat() {
 }
 
 // makeSound overload
-void Cat::makeSound() const {
-  std::cout << "Meow" << std::endl;
-}
+void Cat::makeSound() const { std::cout << "Meow" << std::endl; }

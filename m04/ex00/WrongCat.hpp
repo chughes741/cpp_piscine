@@ -7,10 +7,10 @@
 // Class declaration
 class WrongCat : public WrongAnimal {
  public:
-	WrongCat();
-	WrongCat(const WrongCat &other);
-	WrongCat &operator=(const WrongCat &rhs);
-	~WrongCat();
+  WrongCat();
+  WrongCat(const WrongCat &other);
+  WrongCat &operator=(const WrongCat &rhs);
+  ~WrongCat();
 };
 
-#endif // WRONGCAT_HPP_
+#endif  // WRONGCAT_HPP_

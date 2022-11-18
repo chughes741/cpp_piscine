@@ -27,9 +27,7 @@ Cat::~Cat() {
 }
 
 // makeSound overload
-void Cat::makeSound() const {
-  std::cout << "Meow" << std::endl;
-}
+void Cat::makeSound() const { std::cout << "Meow" << std::endl; }
 
 // Returns an idea from Brain at index i
 const std::string &Cat::think(int i) const { return (brain_->getIdeas(i)); }

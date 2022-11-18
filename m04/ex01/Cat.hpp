@@ -12,7 +12,7 @@ class Cat : public Animal {
   Cat(const Cat &other);
   Cat &operator=(const Cat &rhs);
   ~Cat();
-  
+
   void makeSound() const;
   const std::string &think(int i) const;
 

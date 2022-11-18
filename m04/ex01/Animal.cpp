@@ -33,9 +33,7 @@ Animal::~Animal() {
 }
 
 // type_ getter
-std::string Animal::getType() const {
-  return type_;
-}
+std::string Animal::getType() const { return type_; }
 
 // Make sound method
 void Animal::makeSound() const {

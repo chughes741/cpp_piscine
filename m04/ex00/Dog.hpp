@@ -7,12 +7,12 @@
 // Class declaration
 class Dog : public Animal {
  public:
-	Dog();
-	Dog(const Dog &other);
-	Dog &operator=(const Dog &rhs);
-	~Dog();
+  Dog();
+  Dog(const Dog &other);
+  Dog &operator=(const Dog &rhs);
+  ~Dog();
 
   void makeSound() const;
 };
 
-#endif // DOG_HPP_
+#endif  // DOG_HPP_
