@@ -72,14 +72,29 @@ void Bureaucrat::decreaseGrade() {
 
 // beSigned member function
 void Bureaucrat::signForm(const Form &to_be_signed) const {
+  std::cout << name_;
   if (to_be_signed.getSigned()) {
-    std::cout << name_ << " can't sign " << to_be_signed.getName()
+    std::cout << " can't sign " << to_be_signed.getName()
               << " because it's already signed!" << std::endl;
   } else if (to_be_signed.getSignGrade() < grade_) {
-    std::cout << name_ << " cant't sign " << to_be_signed.getName()
+    std::cout << " cant't sign " << to_be_signed.getName()
               << " because their level is too low!" << std::endl;
   } else {
-    std::cout << name_ << " signed " << to_be_signed.getName() << std::endl;
+    std::cout << " signed " << to_be_signed.getName() << std::endl;
+  }
+}
+
+// executeForm member function
+void Bureaucrat::executeForm(const Form &to_be_executed) const {
+  std::cout << name_;
+  if (to_be_executed.getSigned() == false) {
+    std::cout << " can't execute " << to_be_executed.getName()
+              << " because it's not signed!" << std::endl;
+  } else if (to_be_executed.getExecGrade() < grade_) {
+    std::cout << " can't execute " << to_be_executed.getName()
+              << " because their level is too low!" << std::endl;
+  } else {
+    std::cout << " executed " << to_be_executed.getName() << std::endl;
   }
 }
 

@@ -1,44 +1,57 @@
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main() {
-
+  std::cout << std::endl;
   try {
-    Form my_2014_tax_return = Form("My 2014 tax return", 200, 50);
-  } catch (Form::GradeTooLowException &error) {
-    std::cerr << error.what() << std::endl;
+    // TODO check copy constructor
+    PresidentialPardonForm pres = PresidentialPardonForm("Mike Pence");
+    Bureaucrat donald = Bureaucrat("Donny", 3);
+    pres.beSigned(donald);
+    pres.execute(donald);
+
+  } catch (Form::GradeTooHighException &e) {
+    std::cout << e.what() << std::endl;
+  } catch (Form::GradeTooLowException &e) {
+    std::cout << e.what() << std::endl;
+  } catch (Form::NotSignedException &e) {
+    std::cout << e.what() << std::endl;
   }
 
   std::cout << std::endl;
-
   try {
-    Form my_2014_tax_return = Form("My 2014 tax return", 0, 50);
-  } catch (Form::GradeTooHighException &error) {
-    std::cerr << error.what() << std::endl;
+    // TODO check copy constructor
+    ShrubberyCreationForm shrub = ShrubberyCreationForm("garden");
+    Bureaucrat mike = Bureaucrat("Mike", 10);
+    shrub.beSigned(mike);
+    shrub.execute(mike);
+
+  } catch (Form::GradeTooHighException &e) {
+    std::cout << e.what() << std::endl;
+  } catch (Form::GradeTooLowException &e) {
+    std::cout << e.what() << std::endl;
+  } catch (Form::NotSignedException &e) {
+    std::cout << e.what() << std::endl;
   }
 
   std::cout << std::endl;
-
-
   try {
-    Form my_2014_tax_return = Form("My 2014 tax return", 100, 50);
-    std::cout << my_2014_tax_return << std::endl;
-    Bureaucrat john = Bureaucrat("John", 50);
-    my_2014_tax_return.beSigned(john);
-  } catch (Form::GradeTooLowException &error) {
-    std::cerr << error.what() << std::endl;
-  }
+    // TODO check copy constructor
+    RobotomyRequestForm shrub = RobotomyRequestForm("Bender");
+    Bureaucrat fry = Bureaucrat("Fry", 100);
+    shrub.beSigned(fry);
+    shrub.execute(fry);
 
-  std::cout << std::endl;
-
-  try {
-    Form my_2014_tax_return = Form("My 2014 tax return", 10, 50);
-    std::cout << my_2014_tax_return << std::endl;
-    Bureaucrat john = Bureaucrat("John", 50);
-    my_2014_tax_return.beSigned(john);
-  } catch (Form::GradeTooLowException &error) {
-    std::cerr << error.what() << std::endl;
+  } catch (Form::GradeTooHighException &e) {
+    std::cout << e.what() << std::endl;
+  } catch (Form::GradeTooLowException &e) {
+    std::cout << e.what() << std::endl;
+  } catch (Form::NotSignedException &e) {
+    std::cout << e.what() << std::endl;
   }
 
   return 0;

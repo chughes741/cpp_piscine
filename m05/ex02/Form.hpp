@@ -12,8 +12,14 @@ class Bureaucrat;
 
 // Class declaration
 class Form {
+ private:
+  Form();
+
  public:
-  virtual ~Form();
+  Form(std::string name, int sign_grade, int exec_grade);
+  Form(const Form &other);
+  Form &operator=(const Form &rhs);
+  ~Form();
 
   class GradeTooHighException : public std::exception {
    public:
@@ -23,13 +29,18 @@ class Form {
    public:
     const char *what() const throw();
   };
+  class NotSignedException : public std::exception {
+   public:
+    const char *what() const throw();
+  };
 
   const std::string &getName() const;
   bool getSigned() const;
   int getSignGrade() const;
   int getExecGrade() const;
   void beSigned(const Bureaucrat &signer);
-  virtual void execute(const Bureaucrat &executor) = 0;
+  virtual void beExecuted() = 0;
+  void execute(const Bureaucrat &executor);
 
  private:
   const std::string name_;
