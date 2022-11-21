@@ -34,10 +34,10 @@ std::string RobotomyRequestForm::getTarget() const { return (target_); }
 
 // beExecuted method overload
 void RobotomyRequestForm::beExecuted() {
-	std::cout << target_ << std::endl;
-	if (rand() % 2) {
-		std::cout << " has been successfully robotomized!" << std::endl;
-	} else {
-		std::cout << " has had a failed robotomy!" << std::endl;
-	}
+  std::cout << target_;
+  if (rand() % 2) {
+    std::cout << " has been successfully robotomized!" << std::endl;
+  } else {
+    std::cout << " has had a failed robotomy!" << std::endl;
+  }
 }

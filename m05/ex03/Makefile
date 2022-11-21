@@ -8,7 +8,7 @@ DEFAULT_GOAL: all
 .PHONY: all bonus clean fclean re
 
 # Hide calls
-export VERBOSE	=	TRUE
+export VERBOSE	=	FALSE
 ifeq ($(VERBOSE),TRUE)
 	HIDE =
 else
@@ -28,7 +28,7 @@ RM		=	rm -rf
 # Dir and file names
 NAME	=	bureaucrat
 SRCS	=	main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp \
-				RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+				RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)
 
