@@ -8,7 +8,6 @@
 int main() {
   std::cout << std::endl;
   try {
-    // TODO check copy constructor
     PresidentialPardonForm pres = PresidentialPardonForm("Mike Pence");
     Bureaucrat donald = Bureaucrat("Donny", 3);
     pres.beSigned(donald);
@@ -24,7 +23,6 @@ int main() {
 
   std::cout << std::endl;
   try {
-    // TODO check copy constructor
     ShrubberyCreationForm shrub = ShrubberyCreationForm("garden");
     Bureaucrat mike = Bureaucrat("Mike", 10);
     shrub.beSigned(mike);
@@ -40,7 +38,6 @@ int main() {
 
   std::cout << std::endl;
   try {
-    // TODO check copy constructor
     RobotomyRequestForm shrub = RobotomyRequestForm("Bender");
     Bureaucrat fry = Bureaucrat("Fry", 100);
     shrub.beSigned(fry);

@@ -2,7 +2,6 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-
   try {
     Bureaucrat john = Bureaucrat("John", 0);
     std::cout << john << std::endl;

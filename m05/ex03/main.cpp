@@ -9,7 +9,6 @@
 int main() {
   std::cout << std::endl;
   try {
-    // TODO check copy constructor
     Intern jeff = Intern();
     Form *newform = jeff.makeForm("Robotoy Request Form", "Bender");
     Bureaucrat fry = Bureaucrat("Fry", 149);

@@ -3,7 +3,6 @@
 #include "Form.hpp"
 
 int main() {
-
   try {
     Form my_2014_tax_return = Form("My 2014 tax return", 200, 50);
   } catch (Form::GradeTooLowException &error) {
@@ -19,7 +18,6 @@ int main() {
   }
 
   std::cout << std::endl;
-
 
   try {
     Form my_2014_tax_return = Form("My 2014 tax return", 100, 50);

@@ -36,7 +36,6 @@ std::string ShrubberyCreationForm::getTarget() const { return (target_); }
 void ShrubberyCreationForm::beExecuted() {
   std::ofstream outfile;
   outfile.open(target_.append("_shrubbery"));
-
   outfile << "    	                                        .    " << std::endl;
   outfile << "                       .            ;        ;     " << std::endl;
   outfile << "       .              .              ;%     ;;     " << std::endl;
