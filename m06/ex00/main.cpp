@@ -1,18 +1,37 @@
 
 
 #include <iostream>
-#include "Scalar.hpp"
+
+#include "TypeConverter.hpp"
 
 int main(int argc, char **argv) {
+  // RBS argc != 2
+  if (argc != 1) {
+    std::cerr << "Incorrect number of arguments" << std::endl;
+  }
+  (void)argv;
 
-	if (argc != 2) { std::cerr << "Incorrect number of arguments" << std::endl; }
+  // Scalar inputscalar = Scalar(argv[1]);
+  TypeConverter type1("2.0");
+  type1.printChar();
+  type1.printInt();
+  type1.printFloat();
+  type1.printDouble();
+  TypeConverter type2("42.0");
+  type1.printChar();
+  type1.printInt();
+  type1.printFloat();
+  type1.printDouble();
+  TypeConverter type3("420.0");
+  type1.printChar();
+  type1.printInt();
+  type1.printFloat();
+  type1.printDouble();
+  TypeConverter type4("4020.0");
+  type1.printChar();
+  type1.printInt();
+  type1.printFloat();
+  type1.printDouble();
 
-	try {
-		Scalar inputscalar = Scalar(argv[1]);
-		inputscalar.printTypes();
-	} catch (Scalar::TypeConversionError &e) {
-		std::cerr << e.what() << std::endl;
-	}
-
-	return 0;
+  return 0;
 }
