@@ -8,7 +8,7 @@ DEFAULT_GOAL: test # RBS
 .PHONY: all bonus clean fclean re
 
 # Hide calls
-export VERBOSE	=	FALSE
+export VERBOSE	=	TRUE
 ifeq ($(VERBOSE),TRUE)
 	HIDE =
 else
@@ -27,7 +27,7 @@ RM		=	rm -rf
 
 # Dir and file names
 NAME	=	typeconverter
-SRCS	=	main.cpp TypeConverter.cpp
+SRCS	=	main.cpp 
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)
 
@@ -59,5 +59,5 @@ re: fclean all
 
 test: all
 	clear
-	$(HIDE)./$(NAME)
+	$(HIDE)./$(NAME) a
 	$(HIDE)$(MAKE) fclean

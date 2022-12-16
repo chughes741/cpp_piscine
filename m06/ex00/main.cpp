@@ -1,26 +1,33 @@
 
-
-#include <iostream>
-#include <string>
-
-// Returns true if there's an input error
-bool input_error(int count, std::string input) {
-  if (count < 2) {
-    std::cerr << "This program requires command line input";
-  } else if (count > 2) {
-    std::cerr << "This program only takes one argument";
-  } else if (input.size() == 0) {
-    std::cerr << "This program can't convert empty strings";
-  } else {
-    return false;
-  }
-  return true;
-}
+#include "convert.hpp"
 
 int main(int argc, char **argv) {
-  if (input_error(argc, argv) {
-    exit(1);
+  if (input_error(argc) || argv[1][0] == '\0') {
+    return (1);
   }
-  
-  return 0 ;
+
+  convert_data data;
+  data.input = argv[1];
+  data.type = convert_data::type_int;
+
+  if (data.input.length() == 1 && isprint(data.input[0])) {
+    data.type = convert_data::type_char;
+  } else if (data.input.find('f')) {
+    data.type = convert_data::type_float;
+  } else if (data.input.find('.')) {
+    data.type = convert_data::type_double;
+  }
+
+  return 0;
+}
+
+// Returns true if there's an input error
+bool input_error(int count) {
+  switch (count) {
+    case 2:
+      return false;
+    default:
+      std::cerr << "Wrong number of arguments";
+      return true;
+  }
 }
