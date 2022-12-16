@@ -1,37 +1,26 @@
 
 
 #include <iostream>
+#include <string>
 
-#include "TypeConverter.hpp"
+// Returns true if there's an input error
+bool input_error(int count, std::string input) {
+  if (count < 2) {
+    std::cerr << "This program requires command line input";
+  } else if (count > 2) {
+    std::cerr << "This program only takes one argument";
+  } else if (input.size() == 0) {
+    std::cerr << "This program can't convert empty strings";
+  } else {
+    return false;
+  }
+  return true;
+}
 
 int main(int argc, char **argv) {
-  // RBS argc != 2
-  if (argc != 1) {
-    std::cerr << "Incorrect number of arguments" << std::endl;
+  if (input_error(argc, argv) {
+    exit(1);
   }
-  (void)argv;
-
-  // Scalar inputscalar = Scalar(argv[1]);
-  TypeConverter type1("2.0");
-  type1.printChar();
-  type1.printInt();
-  type1.printFloat();
-  type1.printDouble();
-  TypeConverter type2("42.0");
-  type1.printChar();
-  type1.printInt();
-  type1.printFloat();
-  type1.printDouble();
-  TypeConverter type3("420.0");
-  type1.printChar();
-  type1.printInt();
-  type1.printFloat();
-  type1.printDouble();
-  TypeConverter type4("4020.0");
-  type1.printChar();
-  type1.printInt();
-  type1.printFloat();
-  type1.printDouble();
-
-  return 0;
+  
+  return 0 ;
 }
