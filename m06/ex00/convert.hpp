@@ -11,5 +11,6 @@ typedef struct covert_data {
 } convert_data;
 
 bool input_error(int count);
+convert_data *ConvertData(std::string input);
 
 #endif  // CONVERT_H
