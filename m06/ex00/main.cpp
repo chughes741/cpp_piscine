@@ -20,7 +20,8 @@ int main(int argc, char **argv) {
       data->number = strtod(argv[1], NULL);
       break;
   }
-  if (typeError(data)) {
+  typeError(data);
+  if (data->err) {
     std::cerr << "Type conversion impossible" << std::endl;
   } else {
     printTypes(data->number);
@@ -58,21 +59,26 @@ converted_data *CheckType(std::string input) {
 }
 
 // Checks for type errors
-bool typeError(converted_data *data) {
-  bool err = false;
+void typeError(converted_data *data) {
   switch (data->type) {
     case converted_data::type_char:
       if (std::isnan(data->number) || std::isinf(data->number) ||
           data->number > std::numeric_limits<char>::max() ||
           data->number < std::numeric_limits<char>::min()) {
-        err = true;
+        data->err = true;
       }
       break;
     case converted_data::type_int:
       if (std::isnan(data->number) || std::isinf(data->number) ||
           data->number > std::numeric_limits<int>::max() ||
           data->number < std::numeric_limits<int>::min()) {
-        err = true;
+        data->err = true;
+      }
+      for (std::string::iterator it = data->input.begin();
+           it != data->input.end(); ++it) {
+        if (!isdigit(*it)) {
+          data->err = true;
+        }
       }
       break;
     case converted_data::type_float:
@@ -80,16 +86,13 @@ bool typeError(converted_data *data) {
     case converted_data::type_double:
       break;
   }
-  return err;
 }
 
 // Prints data struct from a double
 void printTypes(double number) {
   char c = static_cast<char>(number);
   std::cout << "char: ";
-  if (std::isnan(number) || std::isinf(number) ||
-      number > std::numeric_limits<char>::max() ||
-      number < std::numeric_limits<char>::min()) {
+  if (nonRepresentable(number) || outsideLimits(number, c)) {
     std::cout << "impossible" << std::endl;
   } else if (!isprint(c)) {
     std::cout << "non displayable" << std::endl;
@@ -99,9 +102,7 @@ void printTypes(double number) {
 
   int i = static_cast<int>(number);
   std::cout << "int: ";
-  if (std::isnan(number) || std::isinf(number) ||
-      number > std::numeric_limits<int>::max() ||
-      number < std::numeric_limits<int>::min()) {
+  if (nonRepresentable(number) || outsideLimits(number, i)) {
     std::cout << "impossible" << std::endl;
   } else {
     std::cout << i << std::endl;
@@ -110,12 +111,12 @@ void printTypes(double number) {
   std::cout << std::fixed << std::setprecision(1);
 
   float f = static_cast<float>(number);
-  if (number > std::numeric_limits<float>::max() ||
-      number < std::numeric_limits<float>::min()) {
+  std::cout << "float: ";
+  if (outsideLimits(number, f)) {
     std::cout << "impossible" << std::endl;
   } else {
-    std::cout << "float: " << f;
-    if (!std::isnan(number) && !std::isinf(number)) {
+    std::cout << f;
+    if (!nonRepresentable(number)) {
       std::cout << "f";
     }
     std::cout << std::endl;
@@ -124,4 +125,13 @@ void printTypes(double number) {
   std::cout << "double: " << number << std::endl;
 
   return;
+}
+
+// Checks if number is NaN or Inf
+bool nonRepresentable(double number) {
+  if (std::isnan(number) || std::isinf(number)) {
+    return true;
+  } else {
+    return false;
+  }
 }
