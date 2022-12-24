@@ -37,6 +37,17 @@ void Span::addNumber(int value) {
   }
 }
 
+// Overload to add a range of ints from a vector to vec_
+void Span::addNumber(const std::vector<int>::iterator &begin,
+                     const std::vector<int>::iterator &end) {
+  int distance = std::distance(begin, end);
+  if (distance > static_cast<int>(size_ - vec_.size())) {
+    throw SizeLimitReached();
+  } else {
+    vec_.insert(vec_.end(), begin, end);
+  }
+}
+
 // Returns the shortest span between two ints in vec_
 int Span::shortestSpan() const {
   if (size_ < 2) {
@@ -49,7 +60,7 @@ int Span::shortestSpan() const {
   int shortest_span = sorted[1] - sorted[0];
   for (vector<int>::iterator it = sorted.begin(); it != sorted.end() - 1;
        ++it) {
-   int span = *(it + 1) - *it;
+    int span = *(it + 1) - *it;
     if (span < shortest_span) {
       shortest_span = span;
     }
