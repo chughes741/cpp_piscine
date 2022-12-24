@@ -17,8 +17,8 @@ class Span {
   ~Span();
 
   void addNumber(int value);
-  unsigned shortestSpan() const;
-  unsigned longestSpan() const;
+  int shortestSpan() const;
+  int longestSpan() const;
   unsigned getSize() const;
   const vector<int> &getVec() const;
 

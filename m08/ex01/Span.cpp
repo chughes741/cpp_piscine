@@ -38,7 +38,7 @@ void Span::addNumber(int value) {
 }
 
 // Returns the shortest span between two ints in vec_
-unsigned Span::shortestSpan() const {
+int Span::shortestSpan() const {
   if (size_ < 2) {
     throw SizeTooSmall();
   }
@@ -46,10 +46,10 @@ unsigned Span::shortestSpan() const {
   vector<int> sorted = vec_;
   std::sort(sorted.begin(), sorted.end());
 
-  unsigned shortest_span = sorted[1] - sorted[0];
+  int shortest_span = sorted[1] - sorted[0];
   for (vector<int>::iterator it = sorted.begin(); it != sorted.end() - 1;
        ++it) {
-    unsigned span = *(it + 1) - *it;
+   int span = *(it + 1) - *it;
     if (span < shortest_span) {
       shortest_span = span;
     }
@@ -58,7 +58,7 @@ unsigned Span::shortestSpan() const {
 }
 
 // Returns the longest span between two ints in vec_
-unsigned Span::longestSpan() const {
+int Span::longestSpan() const {
   if (size_ < 2) {
     throw SizeTooSmall();
   }
@@ -66,14 +66,7 @@ unsigned Span::longestSpan() const {
   vector<int> sorted = vec_;
   std::sort(sorted.begin(), sorted.end());
 
-  unsigned longest_span = sorted[1] - sorted[0];
-  for (vector<int>::iterator it = sorted.begin(); it != sorted.end() - 1;
-       ++it) {
-    unsigned span = *(it + 1) - *it;
-    if (span > longest_span) {
-      longest_span = span;
-    }
-  }
+  int longest_span = *(sorted.end() - 1) - *(sorted.begin());
   return longest_span;
 }
 

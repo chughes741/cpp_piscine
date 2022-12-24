@@ -1,20 +1,20 @@
 
 
 #include <Span.hpp>
-#include <cstdlib>
 #include <iostream>
-#include <limits>
 
 int main() {
-  Span newspan = Span(100000);
+  Span sp = Span(6);
 
-  for (int i = 0; i < 100000; ++i) {
-    long val = rand() % std::numeric_limits<int>::max();
-    newspan.addNumber(static_cast<int>(val));
-  }
+  sp.addNumber(-100);
+  sp.addNumber(3);
+  sp.addNumber(17);
+  sp.addNumber(9);
+  sp.addNumber(-101);
+  sp.addNumber(20);
 
-  std::cout << "Longest span: " << newspan.longestSpan() << std::endl;
-  std::cout << "Shortest span: " << newspan.shortestSpan() << std::endl;
+  std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+  std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
   return 0;
 }
