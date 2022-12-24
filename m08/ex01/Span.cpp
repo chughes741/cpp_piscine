@@ -64,7 +64,7 @@ unsigned Span::longestSpan() const {
   }
 
   vector<int> sorted = vec_;
-  std::sort(vec_.begin(), vec_.end());
+  std::sort(sorted.begin(), sorted.end());
 
   unsigned longest_span = sorted[1] - sorted[0];
   for (vector<int>::iterator it = sorted.begin(); it != sorted.end() - 1;
