@@ -6,6 +6,10 @@ int main(int argc, char **argv) {
     return (1);
   }
 
+  if (isPseudoLiteral(argv[1])) {
+    return 0;
+  }
+
   converted_data *data = CheckType(argv[1]);
 
   switch (data->type) {
@@ -30,6 +34,22 @@ int main(int argc, char **argv) {
   return 0;
 }
 
+// Handles special cases of nan, nanf, +inf, etc..
+bool isPseudoLiteral(std::string input) {
+  if (input.compare("-inff") == 0 || input.compare("+inff") == 0 ||
+      input.compare("nanf") == 0) {
+    input.pop_back();
+  }
+  if (input.compare("-inf") == 0 || input.compare("+inf") == 0 || input.compare("nan") == 0) {
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: " << input << "f" << std::endl;
+    std::cout << "double: " << input << std::endl;
+    return true;
+  }
+  return false;
+}
+
 // Returns true if there's an input error
 bool inputError(int count) {
   switch (count) {
@@ -46,14 +66,15 @@ converted_data *CheckType(std::string input) {
   converted_data *data = new converted_data;
 
   data->input = input;
-  data->type = converted_data::type_int;
 
   if (data->input.length() == 1 && !isdigit(data->input[0])) {
     data->type = converted_data::type_char;
-  } else if (data->input.find('f')) {
+  } else if (data->input.find('f') != std::string::npos) {
     data->type = converted_data::type_float;
-  } else if (data->input.find('.')) {
+  } else if (data->input.find('.') != std::string::npos) {
     data->type = converted_data::type_double;
+  } else {
+    data->type = converted_data::type_int;
   }
   return data;
 }
@@ -82,8 +103,32 @@ void typeError(converted_data *data) {
       }
       break;
     case converted_data::type_float:
+      for (std::string::iterator it = data->input.begin();
+           it != data->input.end() - 1; ++it) {
+        if (!isdigit(*it) && *it != '.') {
+          data->err = true;
+        }
+      }
+      if (data->input.find_first_of('.') != data->input.find_last_of('.') ||
+          data->input.find('.') == std::string::npos ||
+          data->input.back() != 'f' || !isdigit(*(data->input.begin())) ||
+          !isdigit(*(data->input.end() - 2))) {
+        data->err = true;
+      }
       break;
     case converted_data::type_double:
+      for (std::string::iterator it = data->input.begin();
+           it != data->input.end(); ++it) {
+        if (!isdigit(*it) && *it != '.') {
+          data->err = true;
+        }
+      }
+      if (data->input.find('.') == std::string::npos ||
+          data->input.find_first_of('.') != data->input.find_last_of('.') ||
+          !isdigit(*(data->input.begin())) ||
+          !isdigit(*(data->input.end() - 1))) {
+        data->err = true;
+      }
       break;
   }
 }

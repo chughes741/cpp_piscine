@@ -15,6 +15,7 @@ typedef struct converted_data {
   bool err;
 } converted_data;
 
+bool isPseudoLiteral(std::string input);
 bool inputError(int count);
 converted_data *CheckType(std::string input);
 void typeError(converted_data *data);

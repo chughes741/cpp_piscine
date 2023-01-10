@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------#
 
 # Special variables
-DEFAULT_GOAL: test # RBS
+DEFAULT_GOAL: all
 .DELETE_ON_ERROR: $(NAME)
 .PHONY: all bonus clean fclean re
 
@@ -56,8 +56,3 @@ fclean: clean
 
 # Removes objects and executables and remakes
 re: fclean all
-
-test: all
-	clear
-	$(HIDE)./$(NAME) a
-	$(HIDE)$(MAKE) fclean
