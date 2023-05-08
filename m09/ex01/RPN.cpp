@@ -41,6 +41,11 @@ RPN::RPN(string expression) {
       this->stack_.push(*it - '0');
     }
   }
+
+  // Check if there is only one number left in the stack
+  if (this->stack_.size() != 1) {
+    throw exception();
+  }
 }
 
 RPN::RPN(const RPN &other) {
