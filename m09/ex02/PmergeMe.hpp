@@ -2,9 +2,12 @@
 
 #include <exception>
 #include <memory>
+#include <utility>
 
 using std::allocator;
 using std::invalid_argument;
+using std::pair;
+using std::swap;
 
 /**
  * @brief Template for PmergeMe class
@@ -19,14 +22,22 @@ class PmergeMe {
    *
    * @param args Arguments to be sorted in the underlying container
    */
-  PmergeMe(char **args) {
-    if (args == nullptr) {
-      throw invalid_argument("Invalid argument");
+  PmergeMe(T<int> unsorted) {
+    // Check if the number of arguments is even, if not, add a -1 to the end
+    if (unsorted.size() % 2 != 0) {
+      unsorted.push_back(-1);
     }
-    int i = 0;
-    while (args[i] != nullptr) {
-      container_.push_back(std::stoi(args[i]));
-      i++;
+
+    // Push pairs of arguments into the underlying container
+    for (T<int>::iterator it = unsorted.begin(); it != unsorted.end(); ++it) {
+      container_.push_back(pair<int, int>(*it, *(it + 1)));
+    }
+
+    // Sort the merged pairs
+    for (T<pair<int, int>>::iterator it = unsorted.begin(); it != unsorted.end(); ++it) {
+      if (it->first < it->second) {
+        swap(it->first, it->second);
+      }
     }
   }
 
@@ -56,5 +67,5 @@ class PmergeMe {
   ~PmergeMe() { return; }
 
  private:
-  T<int, allocator<int>> container_; /** Underlying container */
+  T<pair<int, int>, allocator<pair<int, int>>> container_; /** Underlying container */
 };
