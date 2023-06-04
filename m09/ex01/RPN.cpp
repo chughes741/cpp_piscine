@@ -1,8 +1,8 @@
 
 #include "RPN.hpp"
 
-RPN::RPN(string expression) {
-  for (string::iterator it = expression.begin(); it != expression.end(); ++it) {
+RPN::RPN(std::string expression) {
+  for (std::string::iterator it = expression.begin(); it != expression.end(); ++it) {
     // Continue if space
     if (*it == ' ') {
       continue;
@@ -11,7 +11,7 @@ RPN::RPN(string expression) {
     } else if (*it == '+' || *it == '-' || *it == '*' || *it == '/') {
       // Check if there are enough numbers in the stack
       if (this->stack_.size() < 2) {
-        throw exception();
+        throw std::exception();
       }
 
       // Pop the two numbers and do the operation
@@ -44,7 +44,7 @@ RPN::RPN(string expression) {
 
   // Check if there is only one number left in the stack
   if (this->stack_.size() != 1) {
-    throw exception();
+    throw std::exception();
   }
 }
 
@@ -62,7 +62,7 @@ RPN &RPN::operator=(const RPN &rhs) {
 
 RPN::~RPN() { return; }
 
-ostream &operator<<(ostream &os, const RPN &rpn) {
+std::ostream &operator<<(std::ostream &os, const RPN &rpn) {
   os << rpn.stack_.top();
   return os;
 }

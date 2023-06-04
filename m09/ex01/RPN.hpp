@@ -5,11 +5,6 @@
 #include <stack>
 #include <string>
 
-using std::exception;
-using std::ostream;
-using std::stack;
-using std::string;
-
 // Class declaration
 class RPN {
  public:
@@ -18,7 +13,7 @@ class RPN {
    *
    * @param expression Expression to evaluate
    */
-  RPN(string expression);
+  RPN(std::string expression);
 
   /**
    * @brief Construct a new RPN object
@@ -40,14 +35,14 @@ class RPN {
    */
   ~RPN();
 
-  stack<int> stack_; /** Stack of operators and numbers */
+  std::stack<int> stack_; /** Stack of operators and numbers */
 };
 
 /**
  * @brief Overload of the << operator for RPN
  *
- * @param os ostream to display to
+ * @param os std::ostream to display to
  * @param rpn RPN to display
- * @return ostream&
+ * @return std::ostream&
  */
-ostream &operator<<(ostream &os, const RPN &rpn);
+std::ostream &operator<<(std::ostream &os, const RPN &rpn);
