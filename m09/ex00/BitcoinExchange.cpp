@@ -68,10 +68,35 @@ Database::Database() {
 
 Database::~Database() {}
 
+double Database::getPrice(const date_t &date) const {
+  std::map<date_t, double>::const_iterator it = database_.find(date);
+
+  // If date is not found, find the closest date
+  if (it == database_.end()) {
+    it = database_.lower_bound(date);
+
+    // Take one less than the lower bound if it exists
+    if (it != database_.begin()) {
+      --it;
+    }
+  }
+
+  return it->second;
+}
+
 void Database::print() const {
   std::cout << "Size of database: " << database_.size() << std::endl;
   for (std::map<date_t, double>::const_iterator it = database_.begin(); it != database_.end();
        ++it) {
     std::cout << it->first << " => " << it->second << '\n';
   }
+}
+
+bool isValidDate(const date_t &date) {
+  date_t normalizedDate = date;
+  mktime((tm *)&normalizedDate);
+
+  // Compares the normalized date with the original input
+  return (normalizedDate.tm_year == date.tm_year && normalizedDate.tm_mon == date.tm_mon &&
+          normalizedDate.tm_mday == date.tm_mday);
 }

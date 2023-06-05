@@ -21,7 +21,26 @@ int main(int argc, char const *argv[]) {
   // Load database
   Database database;
 
-  // database.print();
+  // Convert each line to date and value
+  std::string line;
+  while (std::getline(file, line)) {
+    date_t date;
+    double value = 0;
+
+    // sscanf parses line and stores values in date and value
+    sscanf(line.c_str(), "%d-%d-%d | %lf", &date.tm_year, &date.tm_mon, &date.tm_mday, &value);
+
+    if (value < 0) {
+      std::cerr << "Error: value cannot be negative" << std::endl;
+    } else if (value > 1000) {
+      std::cerr << "Error: value cannot be greater than " << 1000 << std::endl;
+    } else if (!isValidDate(date)) {
+      std::cerr << "Error: invalid date " << date << std::endl;
+    } else {
+      double price = database.getPrice(date);
+      std::cout << date << " => " << value * price << std::endl;
+    }
+  }
 
   return EXIT_SUCCESS;
 }

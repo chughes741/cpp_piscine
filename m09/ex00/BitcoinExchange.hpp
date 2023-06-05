@@ -18,7 +18,7 @@ struct date_t : public tm {
 };
 
 // Output date in YYYY-MM-DD format
-std::ostream& operator<<(std::ostream& os, const date_t& date);
+std::ostream &operator<<(std::ostream &os, const date_t &date);
 
 // Database class
 class Database {
@@ -26,8 +26,12 @@ class Database {
   Database();
   ~Database();
 
-  void print() const;
+  double getPrice(const date_t &date) const;
+  void   print() const;
 
  private:
   std::map<date_t, double> database_;
 };
+
+// Check if date is valid
+bool isValidDate(const date_t &date);
