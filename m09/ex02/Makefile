@@ -56,3 +56,6 @@ fclean: clean
 
 # Removes objects and executables and remakes
 re: fclean all
+
+test: all
+	./$(NAME) `shuf -i 1-100000 -n 10000 | tr "\n" " "`
