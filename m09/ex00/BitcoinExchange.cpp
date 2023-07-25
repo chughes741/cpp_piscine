@@ -55,8 +55,11 @@ Database::Database() {
     date_t date;
     double value;
 
-    // sscanf parses line and stores values in date and value
-    sscanf(line.c_str(), "%d-%d-%d,%lf", &date.tm_year, &date.tm_mon, &date.tm_mday, &value);
+    // Stream data into date and value
+    std::stringstream stream(line);
+    char              dash1, dash2, comma;
+
+    stream >> date.tm_year >> dash1 >> date.tm_mon >> dash2 >> date.tm_mday >> comma >> value;
 
     // Add to database if values are valid
     if (date.tm_year >= 2009 && date.tm_year <= 2023 && date.tm_mon > 0 && date.tm_mon <= 12 &&

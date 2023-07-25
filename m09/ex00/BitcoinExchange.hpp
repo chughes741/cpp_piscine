@@ -6,6 +6,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <sstream>
 
 // tm struct wrapper
 struct date_t : public tm {

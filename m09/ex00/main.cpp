@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <iostream>
 #include <map>
 
@@ -27,8 +26,11 @@ int main(int argc, char const *argv[]) {
     date_t date;
     double value = 0;
 
-    // sscanf parses line and stores values in date and value
-    sscanf(line.c_str(), "%d-%d-%d | %lf", &date.tm_year, &date.tm_mon, &date.tm_mday, &value);
+    // Stream data into date and value
+    std::stringstream stream(line);
+    char              dash1, dash2, pipe;
+
+    stream >> date.tm_year >> dash1 >> date.tm_mon >> dash2 >> date.tm_mday >> pipe >> value;
 
     if (value < 0) {
       std::cerr << "Error: value cannot be negative" << std::endl;
