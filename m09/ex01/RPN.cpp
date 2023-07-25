@@ -23,16 +23,16 @@ RPN::RPN(std::string expression) {
       // Push the result back to the stack
       switch (*it) {
         case '+':
-          this->stack_.push(a + b);
+          this->stack_.push(b + a);
           break;
         case '-':
-          this->stack_.push(a - b);
+          this->stack_.push(b - a);
           break;
         case '*':
-          this->stack_.push(a * b);
+          this->stack_.push(b * a);
           break;
         case '/':
-          this->stack_.push(a / b);
+          this->stack_.push(b / a);
           break;
       }
 
