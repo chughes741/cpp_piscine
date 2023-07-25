@@ -2,6 +2,11 @@
 #include "RPN.hpp"
 
 RPN::RPN(std::string expression) {
+  if (expression.find_first_not_of(VALID_CHARS) != std::string::npos) {
+    std::cerr << "Error" << std::endl;
+    exit(EXIT_FAILURE);
+  }
+
   for (std::string::iterator it = expression.begin(); it != expression.end(); ++it) {
     // Continue if space
     if (*it == ' ') {

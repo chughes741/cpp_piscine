@@ -1,9 +1,12 @@
 #pragma once
 
+#include <cstdlib>
 #include <exception>
-#include <ostream>
+#include <iostream>
 #include <stack>
 #include <string>
+
+#define VALID_CHARS "0123456789+-*/ "
 
 // Class declaration
 class RPN {
